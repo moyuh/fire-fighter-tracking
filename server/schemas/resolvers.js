@@ -23,7 +23,7 @@ Mutation: {
 
       return { token, user };
     },
-login: async (parent, { email, password }) => {
+  login: async (parent, { email, password }) => {
     const user = await User.findOne({ email });
 
     if (!user) {
