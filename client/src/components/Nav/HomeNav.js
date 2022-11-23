@@ -1,4 +1,5 @@
 // This will be placed in the HomeNav.js
+import 'bulma/css/bulma.min.css';
 
 function HomeNav() {
   return (
