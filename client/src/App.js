@@ -32,7 +32,7 @@ function App() {
   return (
   <div>  
     <ApolloProvider client={client}>
-      <Nav />
+         <Nav />
       <Footer />  
     </ApolloProvider> 
   </div>
