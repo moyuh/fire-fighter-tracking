@@ -6,7 +6,7 @@ function Login(){
 return (
     <div className='loginContainer'>
     <Form.Field>
-  <Form.Label>Name</Form.Label>
+  <Form.Label>Username</Form.Label>
   <Form.Control>
     <Form.Input placeholder="Username" name="name" value={form.name} onChange={update} />
     <Icon align="left">
