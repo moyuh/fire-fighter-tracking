@@ -1,8 +1,10 @@
 nav{
     background: green;
-    padding: 2%;
+    padding: 5px;
+    color: white;
     
 }
 ul {
     list-style: none;
+    
 }
