@@ -14,7 +14,7 @@ function Signup(){
     const inputType = target.name;
     const inputValue = target.value;
 
-     if (inputType === 'contactName') {
+     if (inputType === 'username') {
       setUsername(inputValue);
       
     }
@@ -32,7 +32,7 @@ return (
     <Form.Field>
   <Form.Label>Enter Valid Email</Form.Label>
   <Form.Control>
-    <Form.Input placeholder="Username" name="username" value={username} onChange={handleInputChange} />
+    <Form.Input placeholder="Email" name="email" value={email} onChange={handleInputChange} />
     <Icon align="left">
       <i className="github" />
     </Icon>
