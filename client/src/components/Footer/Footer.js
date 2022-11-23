@@ -3,7 +3,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-primary text-white text-center text-lg-start">
+    <div className="bg-primary text-white text-center text-lg-start">
       {/* <!-- Grid container --> */}
       <div className="container p-4">
         {/* <!--Grid row--> */}
@@ -92,7 +92,7 @@ function Footer() {
         {/* <a className="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a> */}
       </div>
       {/* <!-- Copyright --> */}
-    </footer>
+    </div>
   );
 }
 
