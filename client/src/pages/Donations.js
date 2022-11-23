@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 
-function donate () {
+function Donations () {
     return (
    <div>
         <h1>Donations Page</h1>
@@ -12,7 +12,7 @@ function donate () {
         <Link to = 'https://wffoundation.org/'>Wildland Firefighter Foundation</Link>
         <Link to = 'https://www.grassrootswildlandfirefighters.com/'>Grassroots Wildaland Firefighters</Link>
     </div> 
-    )
-}
+    );
+};
 
-export default donate;
+export default Donations;
