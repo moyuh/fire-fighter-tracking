@@ -13,7 +13,7 @@ function Login(){
     const inputType = target.name;
     const inputValue = target.value;
 
-     if (inputType === 'contactName') {
+     if (inputType === 'username') {
       setUsername(inputValue);
       
     }
