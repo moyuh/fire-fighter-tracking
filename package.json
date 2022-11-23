@@ -19,5 +19,8 @@
   "homepage": "https://github.com/moyuh/fire-fighter-tracking#readme",
   "devDependencies": {
     "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "react-bulma-components": "^4.1.0"
   }
 }
