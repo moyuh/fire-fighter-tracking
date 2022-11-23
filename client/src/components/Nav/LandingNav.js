@@ -1,4 +1,5 @@
 // This will be placed in the Landing Page
+import 'bulma/css/bulma.min.css';
 
 function LandingNav() {
   return (
