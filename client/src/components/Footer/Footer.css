@@ -1,0 +1,8 @@
+footer {
+    position: absolute;
+    background-color: aqua;
+    padding: 5px;
+    bottom: 0;
+    width:100%;
+    text-align: end;
+}

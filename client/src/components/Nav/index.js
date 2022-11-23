@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Auth from "../../utils/auth";
 // import { Link } from "react-router-dom" ....Incase we want to use it
 import "./nav.css";
+import PageChoice from '../PageChoice'
 
 function Nav() {
   let [pageView, setPageView] = useState();
@@ -15,6 +16,7 @@ function Nav() {
 
   if (Auth.loggedIn()) {
     return (
+    <div>
       <header>
         <nav>
           <h1>Smokey's Helper</h1>
@@ -67,9 +69,13 @@ function Nav() {
           </ul>
         </nav>
       </header>
+      <PageChoice 
+       pageView = {pageView}/>
+    </div>
     );
   } else {
     return (
+    <div>
       <header>
         <nav>
           <h1>Smokey's Helper</h1>
@@ -95,6 +101,9 @@ function Nav() {
           </ul>
         </nav>
       </header>
+       <PageChoice 
+       pageView = {pageView}/>
+  </div>
     );
   }
 }
