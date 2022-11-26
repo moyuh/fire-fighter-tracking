@@ -21,6 +21,7 @@
     "concurrently": "^7.6.0"
   },
   "dependencies": {
+    "mdb-react-ui-kit": "^5.0.0",
     "react-calendar": "^4.0.0"
   }
 }
