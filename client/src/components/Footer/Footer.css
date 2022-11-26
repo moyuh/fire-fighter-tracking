@@ -1,6 +1,7 @@
 footer {
     position: absolute;
-    background-color: aqua;
+    background-color: #012623;
+    color: white;
     padding: 5px;
     bottom: 0;
     width:100%;
