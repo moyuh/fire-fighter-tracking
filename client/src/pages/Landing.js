@@ -2,7 +2,7 @@ import "mdb-react-ui-kit";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "../components/Nav/nav.css";
 import React, { useState } from "react";
-import "./Landing.css";
+import "./styles/Landing.css";
 
 function Landing() {
   return (

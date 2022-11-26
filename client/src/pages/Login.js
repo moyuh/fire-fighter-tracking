@@ -36,10 +36,11 @@ function Login() {
   return (
     <div className="loginForm">
       <form className="loginContainer">
-        <Form.Field className="inputInfo">
-          <Form.Label>Username</Form.Label>
-          <Form.Control>
+        <Form.Field className="inputInfo bigger">
+          <Form.Label className="bigger">Username</Form.Label>
+          <Form.Control className="bigger">
             <Form.Input
+              className="med"
               placeholder="Username"
               name="username"
               onChange={handleChange}
@@ -50,10 +51,11 @@ function Login() {
           </Form.Control>
         </Form.Field>
         <Form.Field
-        className="inputInfo">
-          <Form.Label>Password</Form.Label>
+        className="inputInfo bigger">
+          <Form.Label className="bigger">Password</Form.Label>
           <Form.Control>
             <Form.Input
+             className="med"
               placeholder="Password"
               name="password"
               type="password"

@@ -1,7 +1,20 @@
 .loginContainer{
-    margin-top: 15%;
+    margin-top: 10%;
     margin-left: 40%;
+    background-color: hsl(223, 13%, 44%, 0.5) ;
+    width: fit-content;
+    padding: 5px;
+    border: 2px solid #E3E59A;
 }
 .inputInfo{
     width: 300px;
 }
+
+.bigger{
+    font-size: 30px;
+}
+
+.med {
+    font-size: 20px;
+}
+
