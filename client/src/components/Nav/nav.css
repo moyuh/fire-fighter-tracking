@@ -1,12 +1,17 @@
 
 nav{
     display: flex;
-    background: green;
+    background: #012623;
     padding: 5px;
     color: white;
     justify-content: space-between;
     
 }
+
+h1 {
+  font-family: 'Stick', sans-serif;
+}
+
 ul {
     list-style: none;
     display: flex;
