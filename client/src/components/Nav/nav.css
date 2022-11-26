@@ -1,12 +1,17 @@
+
 nav{
+    display: flex;
     background: green;
     padding: 5px;
     color: white;
+    justify-content: space-between;
     
 }
 ul {
     list-style: none;
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }  
   .button {
     border: 1px solid green;
@@ -280,7 +285,7 @@ ul {
     box-shadow: 0 0 70px rgba(255, 138, 48, 0.6),
       0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8,
       inset 0 -1px #ffeca8;
-    color: #ffeca8;
+    color:white;
   }
   
   .button.fire:before {
