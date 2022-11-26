@@ -10,6 +10,7 @@ body {
 #landing-login {
     height: 100px;
     width: 300px;
+    margin-left: 20px;
 }
 #landing-login.button.fire::before {
     height: 95px;
