@@ -1,0 +1,38 @@
+body {
+   background-color: transparent;
+}
+.pb-3 {
+    font-size: 30px;
+    text-align: center;
+    margin: 20px;
+}
+
+#landing-login {
+    height: 100px;
+    width: 300px;
+}
+#landing-login.button.fire::before {
+    height: 95px;
+}
+
+#landing-signup {
+    height: 100px;
+    width: 300px;
+}
+
+#landing-signup.button.fire::before {
+    height: 95px;
+}
+
+.col-md-4 {
+    font-size: 20px;
+}
+
+h3 {
+    margin: 20px;
+}
+
+ul {
+    display: inline;
+    margin: 20px;
+}
