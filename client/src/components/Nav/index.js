@@ -19,7 +19,7 @@ function Nav() {
       <div>
         <header>
           <nav>
-            <h1 className="title">Smokey's Helper</h1>
+            <h1>Smokey's Helper</h1>
             <ul className="buttonList">
               <li>
                 <button

@@ -6,11 +6,19 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
+}
+
+nav h1{
+  font-size: 55px;
+  margin-left: 15px;
 }
 
 h1 {
   font-family: 'Stick', sans-serif;
 }
+
+  
 
 .buttonList{
   display: inline-flex;
