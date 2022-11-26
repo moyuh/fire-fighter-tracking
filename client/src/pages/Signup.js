@@ -4,6 +4,7 @@ import {Form, Button, Icon} from "react-bulma-components"
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+import "./styles/Login.css"
 
 function Signup(){
   const [formState, setFormState] = useState({ username: '', password: '' });
@@ -30,39 +31,46 @@ function Signup(){
     });
   };
 return (
+  <div className='loginForm'>
     <form className='loginContainer' onSubmit={handleFormSubmit}>
-<Form.Field>
-  <Form.Label>Create Username</Form.Label>
-  <Form.Control>
-    <Form.Input placeholder="Username" name="username" onChange={handleChange} />
-    <Icon align="left">
-      <i className="github" />
-    </Icon>
+<Form.Field className="inputInfo bigger">
+  <Form.Label className="bigger">Create Username</Form.Label>
+  <Form.Control className="bigger">
+    <Form.Input 
+    className='med'
+    placeholder="Username" 
+    name="username" 
+    onChange={handleChange} />
   </Form.Control>
 </Form.Field>
-<Form.Field>
-  <Form.Label> Create Password</Form.Label>
+<Form.Field className="inputInfo bigger">
+  <Form.Label className="bigger"> Create Password</Form.Label>
   <Form.Control>
-    <Form.Input placeholder="Password" name="password" type="password" onChange={handleChange} />
-    <Icon align="left">
-      <i className="github" />
-    </Icon>
+    <Form.Input 
+    className="med"
+    placeholder="Password" 
+    name="password" 
+    type="password" 
+    onChange={handleChange} />
   </Form.Control>
 </Form.Field>
-<Form.Field>
-  <Form.Label> Repeat Password</Form.Label>
+<Form.Field className="inputInfo bigger">
+  <Form.Label className="bigger"> Repeat Password</Form.Label>
   <Form.Control>
-    <Form.Input placeholder="Password" name="password" type="password" onChange={handleChange} />
-    <Icon align="left">
-      <i className="github" />
-    </Icon>
+    <Form.Input 
+    className="med"
+    placeholder="Password" 
+    name="password" 
+    type="password" 
+    onChange={handleChange} />
   </Form.Control>
 </Form.Field>
 <Button.Group>
-  <Button fullwidth rounded color="primary" >Login</Button>
+  <Button className="button fire" onClick={handleFormSubmit}>Sign Up</Button>
 </Button.Group>
 
 </form>
+</div>
 );
 }
 

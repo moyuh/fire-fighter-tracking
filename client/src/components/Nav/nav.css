@@ -3,12 +3,17 @@ nav{
     background: #012623;
     padding: 5px;
     color: white;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    
 }
 
 h1 {
   font-family: 'Stick', sans-serif;
+}
+
+.buttonList{
+  display: inline-flex;
 }
 
 ul {

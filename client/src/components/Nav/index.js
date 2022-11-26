@@ -20,7 +20,7 @@ function Nav() {
         <header>
           <nav>
             <h1 className="title">Smokey's Helper</h1>
-            <ul>
+            <ul className="buttonList">
               <li>
                 <button
                   className="button fire"
@@ -83,7 +83,7 @@ function Nav() {
         <header>
           <nav>
             <h1>Smokey's Helper</h1>
-            <ul>
+            <ul className="buttonList">
               <li>
                 <button
                   className="button fire"
