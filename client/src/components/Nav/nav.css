@@ -7,4 +7,340 @@ nav{
 ul {
     list-style: none;
     
-}
+}  
+  .button {
+    border: 1px solid green;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transform: skewX(-10deg);
+    zoom: 1.5;
+    height: 50px;
+    width: 200px;
+    border-radius: 20px 5px 20px 0px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font: 15px sans-serif;
+    font-weight: 300;
+    text-shadow: 0 0 20px #fff;
+    text-transform: uppercase;
+    animation: breath2 2s 0.5s infinite alternate;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .button:before {
+    content: "";
+    display: block;
+    width: calc(100% - 22px);
+    height: calc(50px - 8px);
+    animation: breath 2s infinite alternate;
+    left: 10px;
+    top: 3px;
+    position: absolute;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px 3px 15px 3px;
+  }
+  
+  .button.fire {
+    border-color: #ffeca8;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 138, 48, 0.8),
+      rgba(240, 96, 29, 0.8)
+    );
+    box-shadow: 0 0 70px rgba(255, 138, 48, 0.6),
+      0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+    color: #ffeca8;
+  }
+  
+  .button.fire:before {
+    box-shadow: inset 0 0 30px 0 #ffeca8;
+  }
+  .button.ice {
+    border-color: #a8ecff;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(48, 138, 255, 0.8),
+      rgba(29, 96, 240, 0.8)
+    );
+    box-shadow: 0 0 70px rgba(48, 138, 255, 0.6),
+      0 5px 20px rgba(48, 138, 255, 0.6), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+    color: #a8ecff;
+  }
+  
+  .button.ice:before {
+    box-shadow: inset 0 0 30px 0 #a8ecff;
+  }
+  
+  .button:hover.fire {
+    box-shadow: 0 0 70px rgba(255, 138, 48, 0.8),
+      0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+  }
+  
+  .button:hover.fire:before {
+    box-shadow: inset 0 0 50px 0 #ffeca8;
+  }
+  
+  .button:hover.ice {
+    box-shadow: 0 0 70px rgba(48, 138, 255, 0.75),
+      0 5px 20px rgba(48, 138, 255, 0.75), inset 0 1px #a8ecff,
+      inset 0 -1px #a8ecff;
+  }
+  
+  .button:hover.ice:before {
+    box-shadow: inset 0 0 50px 0 #a8ecff;
+  }
+  
+  .button + .button {
+    animation-delay: 0.3s;
+  }
+  .button {
+    border: 1px solid green;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transform: skewX(-10deg);
+    zoom: 1.5;
+    height: 50px;
+    width: 200px;
+    border-radius: 20px 5px 20px 0px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font: 15px sans-serif;
+    font-weight: 300;
+    text-shadow: 0 0 20px #fff;
+    text-transform: uppercase;
+    animation: breath2 2s 0.5s infinite alternate;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .button:before {
+    content: "";
+    display: block;
+    width: calc(100% - 22px);
+    height: calc(50px - 8px);
+    animation: breath 2s infinite alternate;
+    left: 10px;
+    top: 3px;
+    position: absolute;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px 3px 15px 3px;
+  }
+  
+  .button.fire {
+    border-color: #ffeca8;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 138, 48, 0.8),
+      rgba(240, 96, 29, 0.8)
+    );
+    box-shadow: 0 0 70px rgba(255, 138, 48, 0.6),
+      0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+    color: #ffeca8;
+  }
+  
+  .button.fire:before {
+    box-shadow: inset 0 0 30px 0 #ffeca8;
+  }
+  .button.ice {
+    border-color: #a8ecff;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(48, 138, 255, 0.8),
+      rgba(29, 96, 240, 0.8)
+    );
+    box-shadow: 0 0 70px rgba(48, 138, 255, 0.6),
+      0 5px 20px rgba(48, 138, 255, 0.6), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+    color: #a8ecff;
+  }
+  
+  .button.ice:before {
+    box-shadow: inset 0 0 30px 0 #a8ecff;
+  }
+  
+  .button:hover.fire {
+    box-shadow: 0 0 70px rgba(255, 138, 48, 0.8),
+      0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+  }
+  
+  .button:hover.fire:before {
+    box-shadow: inset 0 0 50px 0 #ffeca8;
+  }
+  
+  .button:hover.ice {
+    box-shadow: 0 0 70px rgba(48, 138, 255, 0.75),
+      0 5px 20px rgba(48, 138, 255, 0.75), inset 0 1px #a8ecff,
+      inset 0 -1px #a8ecff;
+  }
+  
+  .button:hover.ice:before {
+    box-shadow: inset 0 0 50px 0 #a8ecff;
+  }
+  
+  .button + .button {
+    animation-delay: 0.3s;
+  }
+  
+  .button.button.fire::before{
+    height:35px;
+  }
+  @keyframes breath {
+    0% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0.95);
+    }
+  }
+  
+  @keyframes breath2 {
+    0% {
+      transform: skewX(-10deg) scaleX(1);
+    }
+    100% {
+      transform: skewX(-10deg) scaleX(0.95);
+    }
+  }
+  @keyframes breath {
+    0% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0.95);
+    }
+  }
+  
+  @keyframes breath2 {
+    0% {
+      transform: skewX(-10deg) scaleX(1);
+    }
+    100% {
+      transform: skewX(-10deg) scaleX(0.95);
+    }
+  }
+  
+  .button {
+    border: 1px solid green;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transform: skewX(-10deg);
+    zoom: 1.5;
+    height: 50px;
+    width: 200px;
+    border-radius: 20px 5px 20px 0px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font: 15px sans-serif;
+    font-weight: 300;
+    text-shadow: 0 0 20px #fff;
+    text-transform: uppercase;
+    animation: breath2 2s 0.5s infinite alternate;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .button:before {
+    content: "";
+    display: block;
+    width: calc(100% - 22px);
+    height: calc(50px - 8px);
+    animation: breath 2s infinite alternate;
+    left: 10px;
+    top: 3px;
+    position: absolute;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 15px 3px 15px 3px;
+  }
+  
+  .button.fire {
+    border-color: #ffeca8;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 138, 48, 0.8),
+      rgba(240, 96, 29, 0.8)
+    );
+    box-shadow: 0 0 70px rgba(255, 138, 48, 0.6),
+      0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+    color: #ffeca8;
+  }
+  
+  .button.fire:before {
+    box-shadow: inset 0 0 30px 0 #ffeca8;
+  }
+  .button.ice {
+    border-color: #a8ecff;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(48, 138, 255, 0.8),
+      rgba(29, 96, 240, 0.8)
+    );
+    box-shadow: 0 0 70px rgba(48, 138, 255, 0.6),
+      0 5px 20px rgba(48, 138, 255, 0.6), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+    color: #a8ecff;
+  }
+  
+  .button.ice:before {
+    box-shadow: inset 0 0 30px 0 #a8ecff;
+  }
+  
+  .button:hover.fire {
+    box-shadow: 0 0 70px rgba(255, 138, 48, 0.8),
+      0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8,
+      inset 0 -1px #ffeca8;
+  }
+  
+  .button:hover.fire:before {
+    box-shadow: inset 0 0 50px 0 #ffeca8;
+  }
+  
+  .button:hover.ice {
+    box-shadow: 0 0 70px rgba(48, 138, 255, 0.75),
+      0 5px 20px rgba(48, 138, 255, 0.75), inset 0 1px #a8ecff,
+      inset 0 -1px #a8ecff;
+  }
+  
+  .button:hover.ice:before {
+    box-shadow: inset 0 0 50px 0 #a8ecff;
+  }
+  
+  .button + .button {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes breath {
+    0% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(0.95);
+    }
+  }
+  
+  @keyframes breath2 {
+    0% {
+      transform: skewX(-10deg) scaleX(1);
+    }
+    100% {
+      transform: skewX(-10deg) scaleX(0.95);
+    }
+  }
