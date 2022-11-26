@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+    
+}
+
+html {
+  background-image: url("./pages/assets/images/forest-bkg.png");
+  background-size: cover;
 }
 
 .App-logo {
