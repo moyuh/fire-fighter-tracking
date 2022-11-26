@@ -23,6 +23,7 @@ function Nav() {
           <ul>
             <li>
               <button
+                className="button fire"
                 id={pageView === "About" ? "highlight" : ""}
                 value={"Home"}
                 onClick={eventHandle}
@@ -32,6 +33,7 @@ function Nav() {
             </li>
             <li>
               <button
+                className="button fire"
                 id={pageView === "Projects" ? "highlight" : ""}
                 value={"Calender"}
                 onClick={eventHandle}
@@ -41,6 +43,7 @@ function Nav() {
             </li>
             <li>
               <button
+                className="button fire"
                 id={pageView === "Projects" ? "highlight" : ""}
                 value={"IQCS"}
                 onClick={eventHandle}
@@ -50,6 +53,7 @@ function Nav() {
             </li>
             <li>
               <button
+                className="button fire"
                 id={pageView === "Projects" ? "highlight" : ""}
                 value={"Donate"}
                 onClick={eventHandle}
@@ -59,6 +63,7 @@ function Nav() {
             </li>
             <li>
               <button
+                className="button fire"
                 id={pageView === "Projects" ? "highlight" : ""}
                 value={"Logout"}
                 onClick={eventHandle}
@@ -82,6 +87,7 @@ function Nav() {
           <ul>
             <li>
               <button
+                className="button fire"
                 id={pageView === "About" ? "highlight" : ""}
                 value={"Login"}
                 onClick={eventHandle}
@@ -91,6 +97,7 @@ function Nav() {
             </li>
             <li>
               <button
+              className="button fire"
                 id={pageView === "Projects" ? "highlight" : ""}
                 value={"Signup"}
                 onClick={eventHandle}
