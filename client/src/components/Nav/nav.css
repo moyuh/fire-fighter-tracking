@@ -18,7 +18,11 @@ h1 {
   font-family: 'Stick', sans-serif;
 }
 
-  
+.smokey {
+  height: 8%;
+  width: 8%;
+  margin-right: 200px;
+}
 
 .buttonList{
   display: inline-flex;
