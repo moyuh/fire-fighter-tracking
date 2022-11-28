@@ -3,6 +3,7 @@ import Auth from "../../utils/auth";
 // import { Link } from "react-router-dom" ....Incase we want to use it
 import "./nav.css";
 import PageChoice from "../PageChoice";
+import Smokey from "../assets/smokey.png"
 
 function Nav() {
   let [pageView, setPageView] = useState();
@@ -20,6 +21,7 @@ function Nav() {
         <header>
           <nav>
             <h1>Smokey's Helper</h1>
+              <img className ="smokey" src={Smokey}alt="logo"/>
             <ul className="buttonList">
               <li>
                 <button
@@ -83,6 +85,7 @@ function Nav() {
         <header>
           <nav>
             <h1>Smokey's Helper</h1>
+            <img className ="smokey" src={Smokey} alt="logo"/>
             <ul className="buttonList">
               <li>
                 <button
