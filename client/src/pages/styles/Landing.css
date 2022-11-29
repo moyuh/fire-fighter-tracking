@@ -8,21 +8,23 @@ body {
 }
 
 #landing-login {
-    height: 100px;
-    width: 300px;
+    height: 65px;
+    width: 265px;
     margin-left: 20px;
 }
 #landing-login.button.fire::before {
-    height: 95px;
+    height: 55px;
+    width: 255px;
 }
 
 #landing-signup {
-    height: 100px;
-    width: 300px;
+    height: 65px;
+    width: 265px;
 }
 
 #landing-signup.button.fire::before {
-    height: 95px;
+    height: 55px;
+    width: 255px;
 }
 
 .col-md-4 {
