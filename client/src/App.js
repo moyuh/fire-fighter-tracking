@@ -8,6 +8,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
+import React, { useState } from 'react';
+
 
 const httpLink = createHttpLink({ uri: '/graphql' });
 
@@ -27,10 +29,12 @@ const client = new ApolloClient({
 });
 
 function App() {
+  let [pageView, setPageView] = useState();
   return (
     <div>
       <ApolloProvider client={client}>
-        <Nav />
+        <Nav pageView = {pageView}
+        setPageView = {setPageView}/>
         <Footer />
       </ApolloProvider>
     </div>
