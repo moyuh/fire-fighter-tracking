@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Auth from '../../utils/auth';
 import './nav.css';
 import PageChoice from '../PageChoice';
@@ -10,7 +9,7 @@ function Nav(props) {
   const eventHandle = (e) => {
     props.setPageView(e.target.value);
   };
-
+console.log(props.pageView);
   if (Auth.loggedIn()) {
     return (
       <div>
@@ -73,7 +72,8 @@ function Nav(props) {
             </ul>
           </nav>
         </header>
-        <LoggedPages pageView={props.pageView} />
+        <LoggedPages pageView={props.pageView}
+        setPageView = {props.setPageView} />
       </div>
     );
   } else {
