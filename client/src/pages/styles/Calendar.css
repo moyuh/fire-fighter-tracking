@@ -1,0 +1,35 @@
+.calendar-div {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.react-calendar__navigation
+{
+  margin-top: 2%;
+}
+
+button ,
+span {
+    background-color:  #012623;
+    color: white;
+}
+
+/* button.react_calendar__tile{
+    height: 45px;
+} */
+.react-calendar__tile{
+    height:80px;
+    width: fit-content;
+}
+.react-calendar__tile:hover{
+    background-color:#cfd284;
+    opacity: 0.5;
+    color:black;
+}
+
+.react-calendar__month-view__weekdays__weekday{
+    text-align: center;
+}
+

@@ -1,0 +1,45 @@
+*{
+    text-align: center;
+   
+}
+
+.donate{
+    margin-top: 20px;
+}
+
+.shrink {
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-weight: bold;
+    padding: 8px;
+    background-color:hsl(175, 95%, 8%, 0.75);
+    width:fit-content;
+    border: 3px solid #E3E59A;
+    color: white;
+}
+
+.topper{
+    margin-top: 3%;
+    margin-left:30%;
+    color:black;
+    text-align:center;
+    font-weight: bold;
+    padding: 8px;
+    background-color:hsl(62, 59%, 75%, 0.75);
+    width:fit-content;
+    border: 3px solid hsl(175, 95%, 8%);
+
+}
+
+.linksNoColor {
+    color: white
+}
+
+.linksNoColor::after, .linksNoColor:visited {
+    color: white;
+}
+
+.lastBtn {
+    margin-top: 3%;
+}
