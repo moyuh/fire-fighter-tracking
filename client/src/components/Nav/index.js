@@ -27,10 +27,10 @@ function Nav() {
                 <button
                   className='button fire'
                   id={pageView === 'About' ? 'highlight' : ''}
-                  value={'Home'}
+                  value={'Dashboard'}
                   onClick={eventHandle}
                 >
-                  Home
+                  Dashboard
                 </button>
               </li>
               <li>
