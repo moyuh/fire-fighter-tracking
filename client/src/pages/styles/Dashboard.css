@@ -3,11 +3,21 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 20px;
     margin-bottom: 100px;
 }
 
 .column {
     color: black;
+}
+
+.column-data {
+    padding: 8px;
+    margin: 20px;
+    background-color:hsl(175, 95%, 8%, 0.75);
+    width:fit-content;
+    border: 3px solid #E3E59A;
+    color: white;
 }
 
 .dash-btn {

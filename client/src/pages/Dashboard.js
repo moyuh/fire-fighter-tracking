@@ -6,10 +6,11 @@ import { getCurrentDate } from "../utils/getCurrentDate";
 function Dashboard() {
   return (
     <div className="dashboard">
-      <div className="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+      <h1>Dashboard</h1>
+      <div className="column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
         Weather Forecast API
       </div>
-      <div className="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+      <div className="column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
         <p>Today's Date: {getCurrentDate()}</p>
         Today's Calendar Events:
       </div>
@@ -17,6 +18,7 @@ function Dashboard() {
         <a
           href="https://www.nifc.gov/nicc/sitreprt.pdf"
           className="sit-href"
+          target="_blank"
           alt="Sit Report"
         >
           <button className="dash-btn">Sit Report Link</button>
