@@ -6,6 +6,8 @@
 html {
   background-image: url("./pages/assets/images/forest-bkg.png");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #012623;
 }
 
 .App-logo {
