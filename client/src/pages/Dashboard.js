@@ -6,7 +6,7 @@ import "../pages/styles/Dashboard.css";
 import { getCurrentDate } from "../utils/getCurrentDate";
 
 
-function Dashboard() {
+function Dashboard(props) {
   const [searchedWeather, setWeather] = useState({});
 
 
@@ -30,20 +30,22 @@ function Dashboard() {
       );
 
       const data = await weatherRes.json();
-      // console.log(data);
-      // console.log(data.properties.lightningActivityLevel.values[0]);
 
       const weatherData = {
         maxTemp: data.properties.maxTemperature.values[0],
         lal: data.properties.lightningActivityLevel.values[0],
       };
-      console.log(weatherData);
 
       setWeather({ weatherData });
     } catch (err) {
       console.error(err);
     }
   };
+  const eventHandle = (e) => {
+    props.setPageView(e.target.value);
+   
+  };
+ 
   if (searchedWeather.weatherData !== undefined) {
     return (
 
@@ -68,14 +70,15 @@ function Dashboard() {
             className="sit-href"
             target="_blank"
             alt="Sit Report"
+            rel="noreferrer"
           >
             <button className="dash-btn">Sit Report Link</button>
           </a>
         </div>
         <div className="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-          {/* Need to redirect to donations page */}
           <a href="placeholder" alt="donation page">
-            <button className="dash-btn">Donate To The Cause</button>
+          <button className="dash-btn" value={"Donations"}
+                onClick={eventHandle}>Donate To The Cause</button>
           </a>
         </div>
       </div>
@@ -86,10 +89,6 @@ function Dashboard() {
         <h1>Dashboard</h1>
         <div className="column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
           Weather Forecast API
-          {/* <ul>
-            <li>{searchedWeather.weatherData.maxTemp.value}</li>
-            <li>{searchedWeather.weatherData.lal.value}</li>
-          </ul> */}
         </div>
         <div className="column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
           <p>Today's Date: {getCurrentDate()}</p>
@@ -101,14 +100,15 @@ function Dashboard() {
             className="sit-href"
             target="_blank"
             alt="Sit Report"
+            rel="noreferrer"
           >
             <button className="dash-btn">Sit Report Link</button>
           </a>
         </div>
         <div className="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-          {/* Need to redirect to donations page */}
           <a href="placeholder" alt="donation page">
-            <button className="dash-btn">Donate To The Cause</button>
+            <button className="dash-btn" value={"Donations"}
+                onClick={eventHandle}>Donate To The Cause</button>
           </a>
 
         </div>

@@ -14,7 +14,8 @@ const LoggedPages = (props) => {
       return <Donations/>;
     } 
     else {
-      return <Dashboard/>;
+      return <Dashboard pageView={props.pageView}
+      setPageView = {props.setPageView}/>;
     }
   };
   
