@@ -1,14 +1,18 @@
+
 import React from "react";
 import { useState, useEffect } from "react";
 import "bulma/css/bulma.min.css";
 import "../pages/styles/Dashboard.css";
 import { getCurrentDate } from "../utils/getCurrentDate";
 
+
 function Dashboard() {
   const [searchedWeather, setWeather] = useState({});
 
+
   let lat = "39.7626";
   let long = "-105.3136";
+
 
   useEffect(() => {
     weatherCall();
@@ -42,15 +46,18 @@ function Dashboard() {
   };
   if (searchedWeather !== {}) {
     return (
+
       <div className="dashboard">
         <h1>Dashboard</h1>
         <div className="column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
           Weather Forecast API
+
           <ul>
             <li>{searchedWeather.weatherData.maxTemp.value}</li>
             <li>{searchedWeather.weatherData.lal.value}</li>
           </ul>
         </div>
+
         <div className="column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
           <p>Today's Date: {getCurrentDate()}</p>
           Today's Calendar Events:
@@ -103,6 +110,7 @@ function Dashboard() {
           <a href="placeholder" alt="donation page">
             <button className="dash-btn">Donate To The Cause</button>
           </a>
+
         </div>
       </div>
     );
