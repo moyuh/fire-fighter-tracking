@@ -6,7 +6,6 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
 }
 
 nav h1{
@@ -33,6 +32,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }  
   .button {
     border: 1px solid green;
@@ -41,7 +41,7 @@ ul {
     transform: skewX(-10deg);
     zoom: 1.5;
     height: 50px;
-    width: 200px;
+    width:100px;
     border-radius: 20px 5px 20px 0px;
     position: relative;
     display: flex;
@@ -60,7 +60,7 @@ ul {
   .button:before {
     content: "";
     display: block;
-    width: calc(100% - 22px);
+    width: calc(100% - 33px);
     height: calc(50px - 8px);
     animation: breath 2s infinite alternate;
     left: 10px;
@@ -81,11 +81,16 @@ ul {
     box-shadow: 0 0 70px rgba(255, 138, 48, 0.6),
       0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8,
       inset 0 -1px #ffeca8;
-    color: #ffeca8;
+    color: #ffffff;
+    width: fit-content;
+    height: 40px;
+    font-size: 10px;
+    font-weight: bold;
   }
   
   .button.fire:before {
     box-shadow: inset 0 0 30px 0 #ffeca8;
+    width: 80%;
   }
   .button.ice {
     border-color: #a8ecff;
@@ -134,7 +139,7 @@ ul {
     transform: skewX(-10deg);
     zoom: 1.5;
     height: 50px;
-    width: 200px;
+    width: 100px;
     border-radius: 20px 5px 20px 0px;
     position: relative;
     display: flex;
@@ -153,7 +158,7 @@ ul {
   .button:before {
     content: "";
     display: block;
-    width: calc(100% - 22px);
+    width: calc(100% - 33px);
     height: calc(50px - 8px);
     animation: breath 2s infinite alternate;
     left: 10px;
@@ -223,6 +228,7 @@ ul {
   
   .button.button.fire::before{
     height:35px;
+    margin-right: 50%;
   }
   @keyframes breath {
     0% {
