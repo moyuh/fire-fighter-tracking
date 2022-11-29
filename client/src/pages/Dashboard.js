@@ -44,7 +44,7 @@ function Dashboard() {
       console.error(err);
     }
   };
-  if (searchedWeather !== {}) {
+  if (searchedWeather.weatherData !== undefined) {
     return (
 
       <div className="dashboard">
