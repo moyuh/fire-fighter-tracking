@@ -54,10 +54,10 @@ function Dashboard(props) {
         <div className="column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
           Weather Forecast API
 
-          <ul>
+          {/* <ul>
             <li>{searchedWeather.weatherData.maxTemp.value}</li>
             <li>{searchedWeather.weatherData.lal.value}</li>
-          </ul>
+          </ul> */}
         </div>
 
         <div className="column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
