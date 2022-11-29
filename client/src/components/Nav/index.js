@@ -3,12 +3,11 @@ import Auth from '../../utils/auth';
 import './nav.css';
 import PageChoice from '../PageChoice';
 import Smokey from '../assets/smokey.png';
+import LoggedPages from '../LoggedPages'
 
 function Nav() {
   let [pageView, setPageView] = useState();
-  if (!pageView) {
-    setPageView('Landing');
-  }
+
 
   const eventHandle = (e) => {
     setPageView(e.target.value);
@@ -68,7 +67,7 @@ console.log(pageView)
                   id={pageView === 'Projects' ? 'highlight' : ''}
                   value={'Logout'}
                   onClick={Auth.logout}
-                  // onClick={eventHandle}
+                  
                 >
                   Logout
                 </button>
@@ -76,7 +75,7 @@ console.log(pageView)
             </ul>
           </nav>
         </header>
-        <PageChoice pageView={pageView} />
+        <LoggedPages pageView={pageView} />
       </div>
     );
   } else {
