@@ -19,11 +19,14 @@ function CalendarPage() {
   const [value, setValue] = useState(new Date());
 
   return (
+    <div className='calendar-div'>
+    <h1>Calendar</h1>
     <Calendar
     //   onChange={onChange}
     //   value={date}
     //   tileContent={tileContent}
     />
+    </div>
   );
 }
 
