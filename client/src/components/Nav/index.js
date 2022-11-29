@@ -5,14 +5,12 @@ import PageChoice from '../PageChoice';
 import Smokey from '../assets/smokey.png';
 import LoggedPages from '../LoggedPages'
 
-function Nav() {
-  let [pageView, setPageView] = useState();
-
+function Nav(props) {
 
   const eventHandle = (e) => {
-    setPageView(e.target.value);
+    props.setPageView(e.target.value);
   };
-console.log(pageView)
+
   if (Auth.loggedIn()) {
     return (
       <div>
@@ -24,7 +22,7 @@ console.log(pageView)
               <li>
                 <button
                   className='button fire'
-                  id={pageView === 'About' ? 'highlight' : ''}
+                  id={props.pageView === 'About' ? 'highlight' : ''}
                   value={'Dashboard'}
                   onClick={eventHandle}
                 >
@@ -34,7 +32,7 @@ console.log(pageView)
               <li>
                 <button
                   className='button fire'
-                  id={pageView === 'Projects' ? 'highlight' : ''}
+                  id={props.pageView === 'Projects' ? 'highlight' : ''}
                   value={'Calender'}
                   onClick={eventHandle}
                 >
@@ -44,7 +42,7 @@ console.log(pageView)
               <li>
                 <button
                   className='button fire'
-                  id={pageView === 'Projects' ? 'highlight' : ''}
+                  id={props.pageView === 'Projects' ? 'highlight' : ''}
                   value={'IQCS'}
                   onClick={eventHandle}
                 >
@@ -54,7 +52,7 @@ console.log(pageView)
               <li>
                 <button
                   className='button fire'
-                  id={pageView === 'Projects' ? 'highlight' : ''}
+                  id={props.pageView === 'Projects' ? 'highlight' : ''}
                   value={'Donations'}
                   onClick={eventHandle}
                 >
@@ -64,7 +62,7 @@ console.log(pageView)
               <li>
                 <button
                   className='button fire'
-                  id={pageView === 'Projects' ? 'highlight' : ''}
+                  id={props.pageView === 'Projects' ? 'highlight' : ''}
                   value={'Logout'}
                   onClick={Auth.logout}
                   
@@ -75,7 +73,7 @@ console.log(pageView)
             </ul>
           </nav>
         </header>
-        <LoggedPages pageView={pageView} />
+        <LoggedPages pageView={props.pageView} />
       </div>
     );
   } else {
@@ -89,7 +87,7 @@ console.log(pageView)
               <li>
                 <button
                   className='button fire'
-                  id={pageView === 'About' ? 'highlight' : ''}
+                  id={props.pageView === 'About' ? 'highlight' : ''}
                   value={'Login'}
                   onClick={eventHandle}
                 >
@@ -99,7 +97,7 @@ console.log(pageView)
               <li>
                 <button
                   className='button fire'
-                  id={pageView === 'Projects' ? 'highlight' : ''}
+                  id={props.pageView === 'Projects' ? 'highlight' : ''}
                   value={'Signup'}
                   onClick={eventHandle}
                 >
@@ -109,7 +107,9 @@ console.log(pageView)
             </ul>
           </nav>
         </header>
-        <PageChoice pageView={pageView} />
+        <PageChoice pageView = {props.pageView}
+        setPageView = {props.setPageView}
+         />
       </div>
     );
   }

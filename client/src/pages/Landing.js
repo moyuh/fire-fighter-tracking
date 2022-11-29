@@ -1,10 +1,12 @@
 import 'mdb-react-ui-kit';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import '../components/Nav/nav.css';
-import React, { useState } from 'react';
 import './styles/Landing.css';
 
-function Landing() {
+function Landing(props) {
+  const eventHandle = (e) => {
+    props.setPageView(e.target.value);
+  };
   return (
     <div className='landing'>
       <div className='row'>
@@ -18,10 +20,9 @@ function Landing() {
             <div className='col-md-6'>
               <button
                 className='button fire'
-                id='landing-login'
-                // id={pageView === "About" ? "highlight" : ""}
-                // value={"Login"}
-                // onClick={eventHandle}
+                id='landing-login'{...props.pageView === "About" ? "highlight" : ""}
+                value={"Login"}
+                onClick={eventHandle}
               >
                 Login
               </button>
@@ -29,10 +30,9 @@ function Landing() {
             <div className='col-md-6'>
               <button
                 className='button fire'
-                id='landing-signup'
-                // id={pageView === "Projects" ? "highlight" : ""}
-                // value={"Signup"}
-                // onClick={eventHandle}
+                id='landing-signup'{...props.pageView === "Projects" ? "highlight" : ""}
+                value={"Signup"}
+                onClick={eventHandle}
               >
                 Signup
               </button>
