@@ -1,7 +1,8 @@
-/* .react-calendar__navigation
+.react-calendar__navigation
 {
-  margin-left: 10%;
-} */
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
 
 button ,
 span {
@@ -9,8 +10,17 @@ span {
     color: white;
 }
 
-button{
+/* button.react_calendar__tile{
     height: 45px;
+} */
+.react-calendar__tile{
+    height:80px;
+    width: fit-content;
+}
+.react-calendar__tile:hover{
+    background-color:#cfd284;
+    opacity: 0.5;
+    color:black;
 }
 
 .react-calendar__month-view__weekdays__weekday{
