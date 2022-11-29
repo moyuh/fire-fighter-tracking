@@ -1,0 +1,25 @@
+.dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+
+.column {
+    color: black;
+}
+
+.dash-btn {
+    border: none;
+    background-color: orange;
+    color: white;
+    border-radius: 8px;
+    height: 75px;
+    width: 300px;
+}
+
+.dash-btn:hover {
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
