@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import 'bulma/css/bulma.min.css';
 
-function Home() {
+function Dashboard() {
   const [searchedWeather, setWeather] = useState({});
 
   let lat = '39.7626';
