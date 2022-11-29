@@ -1,7 +1,7 @@
-.react-calendar__navigation
+/* .react-calendar__navigation
 {
-  margin-left: 40%;
-}
+  margin-left: 10%;
+} */
 
 button ,
 span {
@@ -10,8 +10,9 @@ span {
 }
 
 button{
-    height: 45px
+    height: 45px;
 }
+
 .react-calendar__month-view__weekdays__weekday{
     text-align: center;
 }
