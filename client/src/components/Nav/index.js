@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Auth from '../../utils/auth';
-// import { Link } from "react-router-dom" ....Incase we want to use it
 import './nav.css';
 import PageChoice from '../PageChoice';
 import Smokey from '../assets/smokey.png';
@@ -14,7 +13,7 @@ function Nav() {
   const eventHandle = (e) => {
     setPageView(e.target.value);
   };
-
+console.log(pageView)
   if (Auth.loggedIn()) {
     return (
       <div>
@@ -27,10 +26,10 @@ function Nav() {
                 <button
                   className='button fire'
                   id={pageView === 'About' ? 'highlight' : ''}
-                  value={'Home'}
+                  value={'Dashboard'}
                   onClick={eventHandle}
                 >
-                  Home
+                  Dashboard
                 </button>
               </li>
               <li>
@@ -57,7 +56,7 @@ function Nav() {
                 <button
                   className='button fire'
                   id={pageView === 'Projects' ? 'highlight' : ''}
-                  value={'Donate'}
+                  value={'Donations'}
                   onClick={eventHandle}
                 >
                   Donate
