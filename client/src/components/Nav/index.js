@@ -9,7 +9,7 @@ function Nav(props) {
   const eventHandle = (e) => {
     props.setPageView(e.target.value);
   };
-console.log(props.pageView);
+
   if (Auth.loggedIn()) {
     return (
       <div>

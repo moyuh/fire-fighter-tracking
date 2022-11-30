@@ -1,4 +1,4 @@
-.calendar-div {
+/* .calendar-div {
     margin-top: 20px;
     margin-bottom: 40px;
     margin-left: 15px;
@@ -16,9 +16,7 @@ span {
     color: white;
 }
 
-/* button.react_calendar__tile{
-    height: 45px;
-} */
+
 .react-calendar__tile{
     height:80px;
     width: fit-content;
@@ -31,5 +29,5 @@ span {
 
 .react-calendar__month-view__weekdays__weekday{
     text-align: center;
-}
+} */
 

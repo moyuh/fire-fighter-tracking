@@ -1,7 +1,8 @@
 import Dashboard from "../../pages/Dashboard";
-import Calender from '../../pages/Calender';
 import Donations from "../../pages/Donations";
 import IQCS from "../../pages/IQCS";
+import Calender from '../../pages/Calender';
+
 
 const LoggedPages = (props) => {
     if (props.pageView === "Calender") {
