@@ -5,7 +5,6 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
@@ -19,7 +18,6 @@ const resolvers = {
   },
 
   Mutation: {
-
     addUser: async (parent, args) => {
       try {
         const user = await User.create(args);
@@ -30,30 +28,16 @@ const resolvers = {
       }
     },
 
-    // addEvent: async (parent, args) => {
-     
-    //   try {
-    //     const data = await Event.create(args);
+    addEvent: async (parent, args) => {
+      console.log('are we')
+      try {
+        const event = await Event.create(args);
         
-    //     return { data };
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-
-    // },
-    addEvent: async (parent, args, context) => {
-      if (context.user) {
-        console.log(args)
-        const eventData = await Event.create(args);
-        console.log(eventData.name)
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { event: eventData } }
-        );
-
-        return eventData;
+        return { event };
+      } catch (err) {
+        console.log(err);
       }
-      throw new AuthenticationError('You need to be logged in!');
+
     },
     login: async (parent, { username, password }) => {
       try {
