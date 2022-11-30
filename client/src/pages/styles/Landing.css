@@ -39,3 +39,42 @@ ul {
     display: inline;
     margin: 20px;
 }
+
+@media (max-width:420px){
+    #landing-login.button.fire {
+        height: 45px;
+        width: 245px;
+    }
+    #landing-login.button.fire::before {
+        height: 34px;
+        width: 225px;
+    }
+    #landing-signup {
+        height: 45px;
+        width: 245px;
+        margin-left:20px;
+    }
+
+    #landing-signup.button.fire::before {
+        height: 34px;
+        width: 225px;
+
+    }
+    @keyframes breath {
+        0% {
+          transform:none
+        }
+        100% {
+          transform:none
+        }
+      }
+      
+      @keyframes breath2 {
+        0% {
+          transform: none;
+        }
+        100% {
+          transform: none;
+        }
+      }
+}
