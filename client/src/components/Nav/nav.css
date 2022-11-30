@@ -377,11 +377,14 @@ ul {
     }
   }
 
-  @media (max-width: 414px) {
-   nav,
-   ul,
-   li{
-    display:inline-flex;
-   };
-
+  @media (max-width: 420px) { 
+    nav{
+      display: inline-block;
+    }
+    .smokey {
+      height: 60px;
+      width: 60px;
+      margin-right:0;
+      margin-left: 12%;
+    }
   }
