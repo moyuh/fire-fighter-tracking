@@ -7,6 +7,8 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles/Calendar.css";
+import { ADD_EVENT } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 
 
@@ -21,39 +23,44 @@ const localizer = dateFnsLocalizer({
     locales,
 });
 
-// const events = [
-//     {
-//         title: "Big Meeting",
-//         allDay: true,
-//         start: new Date(2022, 10, 1),
-//         end: new Date(2022, 10, 5),
-//     },
-//     {
-//         title: "Vacation",
-//         start: new Date(2022, 10, 7),
-//         end: new Date(2022, 10, 15),
-//     },
-//     {
-//         title: "Conference",
-//         start: new Date(2022, 10, 20),
-//         end: new Date(2022, 10, 23),
-//     },
-// ];
+
 
 function Calendar2() {
     
     const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
     const [allEvents, setAllEvents] = useState([]);
-    
+    const {addEvent} = useMutation(ADD_EVENT);
     useEffect(() => { 
        
     }, [allEvents])
     
-    function handleAddEvent(event) {
+
+    async function handleAddEvent(event) {
     event.preventDefault();
+
+    try {
         
         setAllEvents([...allEvents, newEvent]);
-        console.log(allEvents)
+        console.log(newEvent)
+         await addEvent({
+          variables: {
+            name: newEvent.title,
+            startDate: newEvent.start,
+            endDate: newEvent.end
+          },
+         
+        });
+        console.log('hry dude')
+        // const eventData = data.addEvent;
+        // console.log(data.addEvent);
+        
+        
+      } catch (err) {
+        console.error("Dis an error ");
+      }
+        
+        
+        
     }
 
     return (

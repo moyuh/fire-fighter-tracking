@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import 'bulma/css/bulma.min.css';
-import { Form, Button, Icon } from 'react-bulma-components';
+import { Form, Button } from 'react-bulma-components';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -9,6 +9,7 @@ import '../pages/styles/Login.css';
 const Login = () => {
   const [formState, setFormState] = useState({ username: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
+  
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -20,18 +21,7 @@ const Login = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // try {
-    //   const mutationResponse = await login({
-    //     variables: {
-    //       username: formState.username,
-    //       password: formState.password,
-    //     },
-    //   });
-    //   const token = mutationResponse.data.login.token;
-    //   Auth.login(token);
-    // } catch (e) {
-    //   console.log(e);
-    // }
+
     try {
       const { data } = await login({
         variables: {
@@ -59,9 +49,7 @@ const Login = () => {
               name='username'
               onChange={handleChange}
             />
-            {/* <Icon align="left">
-      <i className="github" />
-    </Icon> */}
+       
           </Form.Control>
         </Form.Field>
         <Form.Field className='inputInfo bigger'>
@@ -74,9 +62,7 @@ const Login = () => {
               type='password'
               onChange={handleChange}
             />
-            {/* <Icon align="left">
-      <i className="github" />
-    </Icon> */}
+    
           </Form.Control>
         </Form.Field>
         <Button.Group>

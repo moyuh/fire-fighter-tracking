@@ -4,19 +4,19 @@ const eventSchema = new Schema({
 
     name: { 
         type: String, 
-        required: true,
+        required: false,
         unique: false,
         
      },
     startDate: {
         type: String,
-        required: true,
+        required: false,
         unique: false,
        
      },
      endDate: {
       type: String,
-      required: true,
+      required: false,
       unique: false,
      },
     
