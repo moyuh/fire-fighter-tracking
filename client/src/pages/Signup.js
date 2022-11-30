@@ -20,15 +20,7 @@ function Signup() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // const mutationResponse = await addUser({
-    //   variables: {
-    //     username: formState.username,
-    //     password: formState.password,
 
-    //   },
-    // });
-    // const token = mutationResponse.data.addUser.token;
-    // Auth.login(token);
     try {
       const { data } = await addUser({
         variables: {
