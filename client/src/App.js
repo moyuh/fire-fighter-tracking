@@ -11,7 +11,8 @@ import Nav from './components/Nav';
 import React, { useState } from 'react';
 
 
-const httpLink = createHttpLink({ uri: '/graphql' });
+const httpLink = createHttpLink({ uri: '/graphql',});
+
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');

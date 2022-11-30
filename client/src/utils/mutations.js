@@ -25,16 +25,13 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_EVENT = gql`
-  mutation addEvent($name: String, $startDate: String, $endDate:String) {
-   
+  mutation addEvent($name: String!, $startDate: String!, $endDate:String!) {
     addEvent(name: $name, startDate: $startDate, endDate: $endDate) {
-      
-      event {
         
         name
         startDate
         endDate
-      }
+      
     }
   }
 `;
