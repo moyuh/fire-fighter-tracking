@@ -28,16 +28,19 @@ const resolvers = {
       }
     },
 
-    addEvent: async (parent, args) => {
-      console.log('are we')
-      try {
-        const event = await Event.create(args);
+    addEvent: async (parent, args, context) => {
+      if (context.user) {
+       
+        const eventData = await Event.create(args);
         
-        return { event };
-      } catch (err) {
-        console.log(err);
-      }
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { event: eventData } }
+        );
 
+        return eventData;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     login: async (parent, { username, password }) => {
       try {
