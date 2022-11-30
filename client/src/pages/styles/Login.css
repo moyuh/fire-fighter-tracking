@@ -1,5 +1,5 @@
 .loginContainer{
-    margin-top: 5%;
+    margin-top: 20px;
     margin-left: 40%;
     background-color: hsl(223, 13%, 44%, 0.5) ;
     width: fit-content;
@@ -18,3 +18,16 @@
     font-size: 20px;
 }
 
+@media (max-width: 450px) {
+    .inputInfo{
+        width: 150px;
+    };
+    .loginContainer{
+        margin:20px;
+    };
+    /* html{
+        background-image: none;
+        background-color:#012623 ;
+    } */
+    
+  }

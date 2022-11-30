@@ -376,3 +376,12 @@ ul {
       transform: skewX(-10deg) scaleX(0.95);
     }
   }
+
+  @media (max-width: 414px) {
+   nav,
+   ul,
+   li{
+    display:inline-flex;
+   };
+
+  }
