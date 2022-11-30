@@ -44,3 +44,10 @@ html {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 420px) {
+ html{
+ background-image: url("./pages/assets/images/green.jpg");
+ background-repeat: repeat;
+ }
+}

@@ -376,3 +376,15 @@ ul {
       transform: skewX(-10deg) scaleX(0.95);
     }
   }
+
+  @media (max-width: 420px) { 
+    nav{
+      display: inline-block;
+    }
+    .smokey {
+      height: 60px;
+      width: 60px;
+      margin-right:0;
+      margin-left: 12%;
+    }
+  }
