@@ -21,24 +21,24 @@ const localizer = dateFnsLocalizer({
     locales,
 });
 
-const events = [
-    {
-        title: "Big Meeting",
-        allDay: true,
-        start: new Date(2022, 10, 1),
-        end: new Date(2022, 10, 5),
-    },
-    {
-        title: "Vacation",
-        start: new Date(2022, 10, 7),
-        end: new Date(2022, 10, 15),
-    },
-    {
-        title: "Conference",
-        start: new Date(2022, 10, 20),
-        end: new Date(2022, 10, 23),
-    },
-];
+// const events = [
+//     {
+//         title: "Big Meeting",
+//         allDay: true,
+//         start: new Date(2022, 10, 1),
+//         end: new Date(2022, 10, 5),
+//     },
+//     {
+//         title: "Vacation",
+//         start: new Date(2022, 10, 7),
+//         end: new Date(2022, 10, 15),
+//     },
+//     {
+//         title: "Conference",
+//         start: new Date(2022, 10, 20),
+//         end: new Date(2022, 10, 23),
+//     },
+// ];
 
 function Calendar2() {
     

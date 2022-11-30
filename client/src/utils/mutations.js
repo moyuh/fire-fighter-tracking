@@ -22,3 +22,15 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_EVENT = gql`
+  mutation addEvent($username: String!, $password: String!) {
+    addUser(username: $username, password: $password) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
