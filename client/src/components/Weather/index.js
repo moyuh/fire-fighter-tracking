@@ -51,6 +51,11 @@ const Weather = () => {
       const weatherData = {
         maxTemp: data.properties.maxTemperature.values[0],
         lal: data.properties.lightningActivityLevel.values[0],
+        relativeHumidity: data.properties.relativeHumidity.values[0],
+        twentyFootWindSpeed: data.properties.twentyFootWindSpeed.values[0],
+        twentyFootWindDirection:
+          data.properties.twentyFootWindDirection.values[0],
+        hainesIndex: data.properties.hainesIndex.values[0],
       };
 
       console.log(typeof weatherData);
@@ -95,7 +100,6 @@ const Weather = () => {
         ) : (
           <WeatherData searchedWeather={searchedWeather} />
         )}
-        {/* //   : searchedWeather.maxTemp.value} */}
       </div>
     </>
   );
