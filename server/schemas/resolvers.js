@@ -2,10 +2,8 @@ const { AuthenticationError } = require('apollo-server-express');
 const User = require('../models/User');
 const Event = require('../models/Event');
 const { signToken } = require('../utils/auth');
-console.log('yoyoy')
 const resolvers = {
   Query: {
-
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
@@ -19,7 +17,6 @@ const resolvers = {
   },
 
   Mutation: {
-
     addUser: async (parent, args) => {
       try {
         const user = await User.create(args);
@@ -31,15 +28,14 @@ const resolvers = {
     },
 
     addEvent: async (parent, args) => {
-      console.log('are we')
+      console.log('EVENT STORED!');
       try {
         const event = await Event.create(args);
-        
+
         return { event };
       } catch (err) {
         console.log(err);
       }
-
     },
     login: async (parent, { username, password }) => {
       try {
