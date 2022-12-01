@@ -25,13 +25,13 @@ const localizer = dateFnsLocalizer({
 
   function Calendar2() {
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
-  const  {data}  = useQuery(QUERY_EVENTS);
+  const  {data, loading}  = useQuery(QUERY_EVENTS);
   console.log(data)
-  const [allEvents, setAllEvents] = useState();
+  const [allEvents, setAllEvents] = useState([]);
   const [addEvent] = useMutation(ADD_EVENT);
  
   console.log(allEvents)
-if (data) {
+if (loading === false && allEvents === undefined ) {
   setAllEvents(data)
   
 }
@@ -53,7 +53,8 @@ if (data) {
       
       
     } catch (err) {
-      console.log(JSON.stringify(err, null, 2));
+      console.log(err)
+      // console.log(JSON.stringify(err, null, 2));
     }
   }
 
