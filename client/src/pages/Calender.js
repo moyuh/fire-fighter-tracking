@@ -8,7 +8,9 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles/Calendar.css";
 import { ADD_EVENT } from "../utils/mutations";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
+import { QUERY_EVENTS } from "../utils/queries";
+
 
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -21,14 +23,20 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-function Calendar2() {
+  function Calendar2() {
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
-  const [allEvents, setAllEvents] = useState([]);
-
+  const  {data}  = useQuery(QUERY_EVENTS);
+  console.log(data)
+  const [allEvents, setAllEvents] = useState();
   const [addEvent] = useMutation(ADD_EVENT);
-
-  useEffect(() => {}, [allEvents]);
-
+ 
+  console.log(allEvents)
+if (data) {
+  setAllEvents(data)
+  
+}
+  useEffect(() => {}, [setAllEvents]);
+  // setAllEvents(data.events[0])
   async function handleAddEvent(event) {
     event.preventDefault();
 
@@ -42,6 +50,8 @@ function Calendar2() {
           endDate: newEvent.end,
         },
       });
+      
+      
     } catch (err) {
       console.log(JSON.stringify(err, null, 2));
     }

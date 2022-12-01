@@ -10,7 +10,7 @@ const Weather = () => {
   const [long, setLong] = useState('');
   const [searchedWeather, setWeather] = useState({});
 
-  console.log(Object.keys(searchedWeather).length === 1);
+  // console.log(Object.keys(searchedWeather).length === 1);
   const handleInputChange = (e) => {
     const { target } = e;
     const inputType = target.name;
