@@ -9,11 +9,14 @@ export const GET_ME = gql`
   }
 `;
 
-// export const QUERY_USER = gql`
-//   {
-//     user {
-//         username
-//         password
-//     }
-//   }
-// `;
+export const QUERY_EVENTS = gql`
+  query {
+    
+      events {
+        name
+        startDate
+        endDate
+    }
+    
+  }
+`;
