@@ -1,4 +1,5 @@
 import React from 'react';
+import './geolocation.css';
 import { useGeolocated } from 'react-geolocated';
 
 const Geolocation = () => {
@@ -19,39 +20,14 @@ const Geolocation = () => {
   ) : !isGeolocationEnabled ? (
     <div>Geolocation is not enabled</div>
   ) : coords ? (
-    <table style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-      <tbody>
-        <tr>
-          <td colSpan={2}>
-            <h2>Your Current Location</h2>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3>Latitude:</h3>
-          </td>
-          <td>
-            <h3>{coords.latitude.toFixed(4)}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3>Longitude:</h3>
-          </td>
-          <td>
-            <h3>{coords.longitude.toFixed(4)}</h3>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3>Altitude:</h3>
-          </td>
-          <td>
-            <h3>{coords.altitude ? coords.altitude : 'Unavailable'}</h3>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      <h2 className='title'>Your Current Location</h2>
+      <ul className='location-list'>
+        <li>Latitude: {coords.latitude.toFixed(4)}</li>
+        <li>Longitude: {coords.longitude.toFixed(4)}</li>
+        <li>Altitude: {coords.altitude ? coords.altitude : 'Unavailable'}</li>
+      </ul>
+    </>
   ) : (
     <div>Getting the location data&hellip; </div>
   );

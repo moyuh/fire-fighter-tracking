@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { Form, Button } from 'react-bulma-components';
 import 'bulma/css/bulma.min.css';
-import './weather.css';
 import WeatherData from '../WeatherData';
 
 const Weather = () => {
@@ -56,6 +55,7 @@ const Weather = () => {
         twentyFootWindDirection:
           data.properties.twentyFootWindDirection.values[0],
         hainesIndex: data.properties.hainesIndex.values[0],
+        redFlagThreatIndex: data.properties.redFlagThreatIndex.values[0],
       };
 
       console.log(typeof weatherData);
@@ -88,7 +88,13 @@ const Weather = () => {
           onChange={handleInputChange}
         />
 
-        <Button.Group>
+        <Button.Group
+          style={{
+            justifyContent: 'center',
+            marginTop: '7px',
+            marginBottom: '1px',
+          }}
+        >
           <Button className='button fire' onClick={handleSubmit}>
             Submit
           </Button>
