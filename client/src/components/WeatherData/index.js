@@ -1,11 +1,12 @@
 import React from 'react';
+import './weatherData.css';
 import { toFahrenheit } from '../../utils/toFahrenheit';
 const WeatherData = (props) => {
   console.log(props);
   return (
     <>
-      <h2>Forecast Data</h2>
-      <ul>
+      <h2 className='title'>Forecast Data</h2>
+      <ul className='forecast-list'>
         <li>
           Max Temp:{' '}
           {toFahrenheit(props.searchedWeather.maxTemp.value.toFixed(0))}° F
@@ -28,7 +29,18 @@ const WeatherData = (props) => {
             ? props.searchedWeather.lal.value
             : 'Unavailable'}
         </li>
-        <li>Haines: {props.searchedWeather.hainesIndex.value}</li>
+        <li>
+          Haines:{' '}
+          {props.searchedWeather.hainesIndex.value
+            ? props.searchedWeather.hainesIndex.value
+            : 'Unavailable'}
+        </li>
+        <li>
+          Red Flag Threat Index:{' '}
+          {props.searchedWeather.redFlagThreatIndex
+            ? props.searchedWeather.redFlagThreatIndex
+            : 'Unavailable'}
+        </li>
       </ul>
     </>
   );
