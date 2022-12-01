@@ -24,17 +24,19 @@ const localizer = dateFnsLocalizer({
 });
 
   function Calendar2() {
-  const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
-  const  {data, loading}  = useQuery(QUERY_EVENTS);
-  console.log(data)
+  const [newEvent, setNewEvent] = useState({ title: "", startDate: "", endDate: "" });
+  // const  {data, loading}  = useQuery(QUERY_EVENTS);
+  // const {title, startDate, endDate} = data
+  // console.log(data)
   const [allEvents, setAllEvents] = useState([]);
   const [addEvent] = useMutation(ADD_EVENT);
  
   console.log(allEvents)
-if (loading === false && allEvents === undefined ) {
-  setAllEvents(data)
+// if (loading === false && allEvents.length === 0 ) {
+//   console.log(data.events.length)
+//   setAllEvents([data])
   
-}
+// }
   useEffect(() => {}, [setAllEvents]);
   // setAllEvents(data.events[0])
   async function handleAddEvent(event) {
@@ -46,8 +48,8 @@ if (loading === false && allEvents === undefined ) {
       await addEvent({
         variables: {
           name: newEvent.title,
-          startDate: newEvent.start,
-          endDate: newEvent.end,
+          startDate: newEvent.startDate,
+          endDate: newEvent.endDate,
         },
       });
       
@@ -74,18 +76,18 @@ if (loading === false && allEvents === undefined ) {
         <label>Start Date </label>
         <input
           type="date"
-          selected={newEvent.start}
+          selected={newEvent.startDate}
           onChange={(x) =>
-            setNewEvent({ ...newEvent, start: new Date(x.target.value) })
+            setNewEvent({ ...newEvent, startDate: new Date(x.target.value) })
           }
         ></input>
 
         <label>End Date </label>
         <input
           type="date"
-          selected={newEvent.end}
+          selected={newEvent.endDate}
           onChange={(end) =>
-            setNewEvent({ ...newEvent, end: new Date(end.target.value) })
+            setNewEvent({ ...newEvent, endDate: new Date(end.target.value) })
           }
         ></input>
 
@@ -96,8 +98,8 @@ if (loading === false && allEvents === undefined ) {
       <Calendar
         localizer={localizer}
         events={allEvents}
-        startAccessor="start"
-        endAccessor="end"
+        startAccessor="startDate"
+        endAccessor="endDate"
         style={{ height: 500, margin: "50px" }}
       />
     </div>
