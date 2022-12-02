@@ -1,19 +1,20 @@
-import format from "date-fns/format";
-import getDay from "date-fns/getDay";
-import parse from "date-fns/parse";
-import startOfWeek from "date-fns/startOfWeek";
-import React, { useEffect, useState } from "react";
-import { Calendar, dateFnsLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import "react-datepicker/dist/react-datepicker.css";
-import "./styles/Calendar.css";
-import { ADD_EVENT } from "../utils/mutations";
-import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_EVENTS } from "../utils/queries";
-
+import format from 'date-fns/format';
+import getDay from 'date-fns/getDay';
+import parse from 'date-fns/parse';
+import startOfWeek from 'date-fns/startOfWeek';
+import React, { useEffect, useState } from 'react';
+import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'react-datepicker/dist/react-datepicker.css';
+import './styles/Calendar.css';
+import { ADD_EVENT } from '../utils/mutations';
+import { useMutation, useQuery } from '@apollo/client';
+// import { QUERY_EVENTS } from '../utils/queries';
+import { GET_ME } from '../utils/queries';
+import Auth from '../utils/auth';
 
 const locales = {
-  "en-US": require("date-fns/locale/en-US"),
+  'en-US': require('date-fns/locale/en-US'),
 };
 const localizer = dateFnsLocalizer({
   format,
@@ -23,72 +24,92 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-  function Calendar2() {
-  const [newEvent, setNewEvent] = useState({ title: "", startDate: "", endDate: "" });
-  const  {data, loading}  = useQuery(QUERY_EVENTS);
-  // console.log(data)
+function Calendar2() {
+  const [newEvent, setNewEvent] = useState({
+    title: '',
+    startDate: '',
+    endDate: '',
+  });
+
   const [allEvents, setAllEvents] = useState([]);
-  const [addEvent] = useMutation(ADD_EVENT);
+  const { loading, data } = useQuery(GET_ME);
+  const userData = data?.me || [];
   useEffect(() => {}, [setAllEvents]);
- 
+  const [addEvent] = useMutation(ADD_EVENT);
+
+  // const { data, loading } = useQuery(QUERY_EVENTS);
+  console.log(data);
+
+  // useEffect(() => {
+  //   setAllEvents(data);
+  // }, []);
+
   // console.log(allEvents)
-  
-if (loading === false && allEvents.length === 0) {
-  const george = []
-  for (let i = 0; i < data.events.length; i++) {
-    console.log(data.events[i].title)
-    
-    const loaded = {
-      title: data.events[i].title,
-      startDate: new Date (data.events[i].startDate),
-      endDate: new Date (data.events[i].endDate)
+
+  if (
+    loading === false &&
+    allEvents.length === 0 &&
+    userData.event.length > 0
+  ) {
+    const george = [];
+    for (let i = 0; i < userData.event.length; i++) {
+      console.log('in the loop!');
+      const loaded = {
+        title: userData.event[i].title,
+        startDate: new Date(userData.event[i].startDate),
+        endDate: new Date(userData.event[i].endDate),
+      };
+      george.push(loaded);
+      console.log(loaded);
     }
-    george.push(loaded)
-    console.log(loaded)
-    
+    setAllEvents(george);
+    console.log(allEvents);
   }
-  setAllEvents(george)
-    console.log(allEvents)
-}
-  console.log(allEvents)
+
+  console.log(allEvents);
   // setAllEvents(data.events[0])
   async function handleAddEvent(event) {
     event.preventDefault();
 
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
     try {
-      setAllEvents([...allEvents, newEvent]);
-      console.log(newEvent);
+      // setAllEvents([...allEvents, newEvent]);
       await addEvent({
         variables: {
           title: newEvent.title,
-          startDate: new Date (newEvent.startDate),
-          endDate: new Date (newEvent.endDate),
+          startDate: new Date(newEvent.startDate),
+          endDate: new Date(newEvent.endDate),
         },
       });
-      
-      
+      setAllEvents([...allEvents, newEvent]);
     } catch (err) {
-      console.log(err)
+      console.log(err);
       // console.log(JSON.stringify(err, null, 2));
     }
   }
 
   return (
-    <div className="App">
+    <div className='App'>
       <h1>Calendar</h1>
       <h2>Add New Event</h2>
       <form>
         <input
-          type="text"
-          placeholder="Add Event"
-          style={{ width: "20%", marginRight: "10px" }}
+          type='text'
+          placeholder='Add Event'
+          style={{ width: '20%', marginRight: '10px' }}
           value={newEvent.title}
           onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
         />
 
         <label>Start Date </label>
         <input
-          type="date"
+          type='date'
           selected={newEvent.startDate}
           onChange={(x) =>
             setNewEvent({ ...newEvent, startDate: new Date(x.target.value) })
@@ -97,23 +118,23 @@ if (loading === false && allEvents.length === 0) {
 
         <label>End Date </label>
         <input
-          type="date"
+          type='date'
           selected={newEvent.endDate}
           onChange={(end) =>
             setNewEvent({ ...newEvent, endDate: new Date(end.target.value) })
           }
         ></input>
 
-        <button stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
+        <button stlye={{ marginTop: '10px' }} onClick={handleAddEvent}>
           Add Event
         </button>
       </form>
       <Calendar
         localizer={localizer}
         events={allEvents}
-        startAccessor="startDate"
-        endAccessor="endDate"
-        style={{ height: 500, margin: "50px" }}
+        startAccessor='startDate'
+        endAccessor='endDate'
+        style={{ height: 500, margin: '50px' }}
       />
     </div>
   );

@@ -1,7 +1,7 @@
-const { mongoose, Schema, model } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-
+const eventSchema = require('./Event');
 
 const userSchema = new Schema({
   username: {
@@ -14,12 +14,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  event: [  {
-    type: Array,
-    ref: 'Event'
-  }]
+  event: [eventSchema],
 });
-
 
 // Set up pre-save middleware to create password
 userSchema.pre('save', async function (next) {
@@ -37,6 +33,5 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 const User = model('User', userSchema);
-
 
 module.exports = User;
