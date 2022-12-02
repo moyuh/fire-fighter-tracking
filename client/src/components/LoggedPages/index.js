@@ -1,6 +1,6 @@
 import Dashboard from "../../pages/Dashboard";
 import Donations from "../../pages/Donations";
-import IQCS from "../../pages/IQCS";
+import Links from "../../pages/Links";
 import Calender from '../../pages/Calender';
 
 
@@ -8,8 +8,8 @@ const LoggedPages = (props) => {
     if (props.pageView === "Calender") {
       return <Calender />;
     } 
-    else if (props.pageView === "IQCS") { 
-        return <IQCS/>;
+    else if (props.pageView === "Links") { 
+        return <Links/>;
       } 
     else if (props.pageView === "Donations") { 
       return <Donations/>;
