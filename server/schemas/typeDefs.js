@@ -9,7 +9,7 @@ const typeDefs = gql`
   }
   type Event {
     _id: ID
-    name: String
+    title: String
     startDate: String
     endDate: String
   }
@@ -27,7 +27,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String!, password: String!): Auth
-    addEvent(name: String!, startDate: String!, endDate: String!): Event
+    addEvent(title: String!, startDate: String!, endDate: String!): Event
     login(username: String!, password: String!): Auth
   }
 `;

@@ -13,7 +13,7 @@ export const QUERY_EVENTS = gql`
   query {
     
       events {
-        name
+        title
         startDate
         endDate
     }
