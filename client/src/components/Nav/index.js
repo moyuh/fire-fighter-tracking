@@ -42,10 +42,10 @@ function Nav(props) {
                 <button
                   className='button fire'
                   id={props.pageView === 'Projects' ? 'highlight' : ''}
-                  value={'IQCS'}
+                  value={'Links'}
                   onClick={eventHandle}
                 >
-                  IQCS
+                  Links
                 </button>
               </li>
               <li>

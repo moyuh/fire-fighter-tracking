@@ -29,8 +29,8 @@ GIVEN the application properly operates for a given user
 <li>THEN I am able to view top-level important information</li>
 <li>WHEN I click on the calendar button in the nav bar</li>
 <li>THEN I am redirected to the calendar page</li>
-<li>WHEN I click on the IQCS button in the nav bar</li>
-<li>THEN I am redirected to the IQCS page</li>
+<li>WHEN I click on the Links button in the nav bar</li>
+<li>THEN I am redirected to the Links page</li>
 <li>WHEN I click on the Donate button in the nav bar</li>
 <li>THEN I am redirected to the Donation Page</li>
 <li>WHEN I click on the Logout button in the nav bar</li>
@@ -53,7 +53,7 @@ NOTE: Be sure to merge the latest from 'main' before making a pull request!
 
 <ul>
 <li>Github Link:  https://github.com/moyuh/fire-fighter-tracking</li>
-<li>Heroku Link:  https://placeholder</li>
+<li>Heroku Link:  https://smokeys-helpers.herokuapp.com/</li>
 </ul>
 
 ## Creators:
