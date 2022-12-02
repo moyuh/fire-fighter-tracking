@@ -18,16 +18,16 @@
     font-size: 20px;
 }
 
-@media (max-width: 450px) {
+@media (max-width:420px) {
     .inputInfo{
         width: 150px;
-    };
-    .loginContainer{
-        margin:20px;
-    };
-    /* html{
-        background-image: none;
-        background-color:#012623 ;
-    } */
+    }
+    .loginForm{
+        margin-right: 15%;
+    }
+    .bigger{
+        color: white;
+        font-size: 17px;
+    }
     
   }

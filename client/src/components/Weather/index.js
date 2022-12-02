@@ -70,7 +70,7 @@ const Weather = () => {
   return (
     <>
       <form className='weather-form'>
-        <h2>Enter your latitude and longitude in Decimal Degress</h2>
+        <h4>Enter your latitude and longitude in Decimal Degress</h4>
         <Form.Label htmlFor='latitude'>Latitude</Form.Label>
         <Form.Input
           type='text'
