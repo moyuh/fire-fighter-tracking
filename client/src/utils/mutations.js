@@ -24,13 +24,24 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_EVENT = gql`
-  mutation addEvent($title: String!, $startDate: String!, $endDate:String!) {
+  mutation addEvent($title: String!, $startDate: String!, $endDate: String!) {
+    # addEvent(title: $title, startDate: $startDate, endDate: $endDate) {
+
+    #     title
+    #     startDate
+    #     endDate
+
+    # }
     addEvent(title: $title, startDate: $startDate, endDate: $endDate) {
-        
+      _id
+      username
+      password
+      event {
+        _id
         title
         startDate
         endDate
-      
+      }
     }
   }
 `;
