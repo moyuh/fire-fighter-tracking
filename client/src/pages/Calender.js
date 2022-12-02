@@ -34,18 +34,21 @@ const localizer = dateFnsLocalizer({
   // console.log(allEvents)
   
 if (loading === false && allEvents.length === 0) {
-  
+  const george = []
   for (let i = 0; i < data.events.length; i++) {
-    // console.log(data.events[i].title)
+    console.log(data.events[i].title)
+    
     const loaded = {
       title: data.events[i].title,
       startDate: new Date (data.events[i].startDate),
       endDate: new Date (data.events[i].endDate)
     }
+    george.push(loaded)
+    console.log(loaded)
     
-    setAllEvents([...allEvents, loaded])
-    console.log(allEvents)
   }
+  setAllEvents(george)
+    console.log(allEvents)
 }
   console.log(allEvents)
   // setAllEvents(data.events[0])
