@@ -24,20 +24,28 @@ const localizer = dateFnsLocalizer({
 });
 
   function Calendar2() {
-  const [newEvent, setNewEvent] = useState({ title: "", startDate: "", endDate: "" });
-  // const  {data, loading}  = useQuery(QUERY_EVENTS);
-  // const {title, startDate, endDate} = data
-  // console.log(data)
+  const [newEvent, setNewEvent] = useState({ name: "", startDate: "", endDate: "" });
+  const  {data, loading}  = useQuery(QUERY_EVENTS);
+  console.log(data)
   const [allEvents, setAllEvents] = useState([]);
   const [addEvent] = useMutation(ADD_EVENT);
+  useEffect(() => {}, [setAllEvents]);
  
   console.log(allEvents)
-// if (loading === false && allEvents.length === 0 ) {
-//   console.log(data.events.length)
-//   setAllEvents([data])
   
-// }
-  useEffect(() => {}, [setAllEvents]);
+if (loading === false && allEvents.length === 0) {
+  
+  for (let i = 0; i < data.events.length; i++) {
+    console.log(data.events[i].name)
+    const loaded = {
+      name: data.events[i].name,
+      startDate: new Date (data.events[i].startDate),
+      endDate: new Date (data.events[i].endDate)
+    }
+    setAllEvents(loaded)
+  }
+}
+  
   // setAllEvents(data.events[0])
   async function handleAddEvent(event) {
     event.preventDefault();
@@ -47,9 +55,9 @@ const localizer = dateFnsLocalizer({
       console.log(newEvent);
       await addEvent({
         variables: {
-          name: newEvent.title,
-          startDate: newEvent.startDate,
-          endDate: newEvent.endDate,
+          name: newEvent.name,
+          startDate: new Date (newEvent.startDate),
+          endDate: new Date (newEvent.endDate),
         },
       });
       
@@ -69,8 +77,8 @@ const localizer = dateFnsLocalizer({
           type="text"
           placeholder="Add Event"
           style={{ width: "20%", marginRight: "10px" }}
-          value={newEvent.title}
-          onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
+          value={newEvent.name}
+          onChange={(e) => setNewEvent({ ...newEvent, name: e.target.value })}
         />
 
         <label>Start Date </label>
