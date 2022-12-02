@@ -24,28 +24,30 @@ const localizer = dateFnsLocalizer({
 });
 
   function Calendar2() {
-  const [newEvent, setNewEvent] = useState({ name: "", startDate: "", endDate: "" });
+  const [newEvent, setNewEvent] = useState({ title: "", startDate: "", endDate: "" });
   const  {data, loading}  = useQuery(QUERY_EVENTS);
-  console.log(data)
+  // console.log(data)
   const [allEvents, setAllEvents] = useState([]);
   const [addEvent] = useMutation(ADD_EVENT);
   useEffect(() => {}, [setAllEvents]);
  
-  console.log(allEvents)
+  // console.log(allEvents)
   
 if (loading === false && allEvents.length === 0) {
   
   for (let i = 0; i < data.events.length; i++) {
-    console.log(data.events[i].name)
+    // console.log(data.events[i].title)
     const loaded = {
-      name: data.events[i].name,
+      title: data.events[i].title,
       startDate: new Date (data.events[i].startDate),
       endDate: new Date (data.events[i].endDate)
     }
-    setAllEvents(loaded)
+    
+    setAllEvents([...allEvents, loaded])
+    console.log(allEvents)
   }
 }
-  
+  console.log(allEvents)
   // setAllEvents(data.events[0])
   async function handleAddEvent(event) {
     event.preventDefault();
@@ -55,7 +57,7 @@ if (loading === false && allEvents.length === 0) {
       console.log(newEvent);
       await addEvent({
         variables: {
-          name: newEvent.name,
+          title: newEvent.title,
           startDate: new Date (newEvent.startDate),
           endDate: new Date (newEvent.endDate),
         },
@@ -77,8 +79,8 @@ if (loading === false && allEvents.length === 0) {
           type="text"
           placeholder="Add Event"
           style={{ width: "20%", marginRight: "10px" }}
-          value={newEvent.name}
-          onChange={(e) => setNewEvent({ ...newEvent, name: e.target.value })}
+          value={newEvent.title}
+          onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })}
         />
 
         <label>Start Date </label>

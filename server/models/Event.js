@@ -2,7 +2,7 @@ const { Schema, model, Types } = require('mongoose');
 const eventSchema = new Schema({
     
 
-    name: { 
+    title: { 
         type: String, 
         required: false,
         unique: false,
