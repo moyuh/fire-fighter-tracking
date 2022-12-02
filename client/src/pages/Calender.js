@@ -125,7 +125,7 @@ function Calendar2() {
           }
         ></input>
 
-        <button stlye={{ marginTop: '10px' }} onClick={handleAddEvent}>
+        <button style={{ marginTop: '10px' }} onClick={handleAddEvent}>
           Add Event
         </button>
       </form>
