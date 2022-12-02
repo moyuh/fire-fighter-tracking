@@ -4,6 +4,7 @@ import 'bulma/css/bulma.min.css';
 import '../pages/styles/Dashboard.css';
 import { getCurrentDate } from '../utils/getCurrentDate';
 import Weather from '../components/Weather';
+import Geolocation from '../components/Geolocation';
 
 function Dashboard(props) {
   // const [searchedWeather, setWeather] = useState({});
@@ -49,10 +50,7 @@ function Dashboard(props) {
       <div className='column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd'>
         Weather Forecast API
         <Weather />
-        {/* <ul>
-            <li>{searchedWeather.weatherData.maxTemp.value}</li>
-            <li>{searchedWeather.weatherData.lal.value}</li>
-          </ul> */}
+        <Geolocation />
       </div>
 
       <div className='column column-data is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd'>

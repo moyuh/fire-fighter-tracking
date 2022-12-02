@@ -1,0 +1,13 @@
+.title {
+  border-top: 3px solid #e3e59a;
+  color: white;
+  padding-top: 5px;
+  margin-bottom: 2px !important;
+}
+
+.location-list {
+  padding-left: 0px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
