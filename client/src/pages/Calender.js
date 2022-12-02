@@ -34,7 +34,7 @@ function Calendar2() {
   const [allEvents, setAllEvents] = useState([]);
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
-  useEffect(() => {}, [setAllEvents]);
+  // useEffect(() => {}, [setAllEvents]);
   const [addEvent] = useMutation(ADD_EVENT);
 
   // const { data, loading } = useQuery(QUERY_EVENTS);
