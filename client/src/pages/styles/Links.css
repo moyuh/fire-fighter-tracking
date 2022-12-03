@@ -1,0 +1,15 @@
+.link-btn{
+    display: block;
+   margin-left: 38%;
+   margin-bottom: 10px;
+}
+
+@media (max-width:420px) {
+    .link-btn{
+        margin-left:15%; 
+    }
+    .linkPage,
+    .aboutLinks{
+        color:white;
+    }
+}

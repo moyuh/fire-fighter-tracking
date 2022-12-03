@@ -5,18 +5,22 @@ export const GET_ME = gql`
       _id
       username
       password
+      event {
+        _id
+        title
+        startDate
+        endDate
+      }
     }
   }
 `;
 
 export const QUERY_EVENTS = gql`
   query {
-    
-      events {
-        title
-        startDate
-        endDate
+    events {
+      title
+      startDate
+      endDate
     }
-    
   }
 `;
