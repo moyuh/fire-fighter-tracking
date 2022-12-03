@@ -94,6 +94,15 @@ function Calendar2() {
     }
   }
 
+  async function handleSelect(pEvent) {
+    console.log(pEvent);
+    const r = window.confirm('Would you like to remove this event?');
+    if (r === true) {
+      //Need some logic to delete
+      alert('logic to delete goes here');
+    }
+  }
+
   return (
     <div className='App'>
       <h1>Calendar</h1>
@@ -134,6 +143,7 @@ function Calendar2() {
         events={allEvents}
         startAccessor='startDate'
         endAccessor='endDate'
+        onSelectEvent={handleSelect}
         style={{ height: 500, margin: '50px' }}
       />
     </div>
