@@ -11,13 +11,22 @@
     color:white;
 }
 
-
-.rbc-day-bg.rbc-off-range-bg{
-    background-color:rgb(90, 85, 85);
+.rbc-event-content{
+    background-color: rgba(255, 138, 48);
 }
+.rbc-event-content:hover{
+   font-size: larger;
+}
+.rbc-event, .rbc-day-slot .rbc-background-event{
+    background-color: rgba(255, 138, 48);;
+}
+/* .rbc-day-bg.rbc-off-range-bg{
+    background-color:rgb(90, 85, 85);
+} */
 
 .rbc-day-bg.rbc-today {
-    background-color:hsl(223, 13%, 44%);
+    background-color: hsl(175, 95%, 8%, 0.5); 
+    
 }
 
 .rbc-day-bg {
