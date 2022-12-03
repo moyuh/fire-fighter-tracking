@@ -12,10 +12,12 @@ import { useMutation, useQuery } from '@apollo/client';
 // import { QUERY_EVENTS } from '../utils/queries';
 import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
+import enUS from 'date-fns/locale/en-US'
+
 
 const locales = {
-  'en-US': require('date-fns/locale/en-US'),
-};
+  'en-US': enUS,
+}
 const localizer = dateFnsLocalizer({
   format,
   parse,
@@ -118,7 +120,7 @@ function Calendar2() {
 
         <label>Start Date </label>
         <input
-          type='date'
+          type="datetime-local"
           selected={newEvent.startDate}
           onChange={(x) =>
             setNewEvent({ ...newEvent, startDate: new Date(x.target.value) })
@@ -127,7 +129,7 @@ function Calendar2() {
 
         <label>End Date </label>
         <input
-          type='date'
+          type="datetime-local"
           selected={newEvent.endDate}
           onChange={(end) =>
             setNewEvent({ ...newEvent, endDate: new Date(end.target.value) })
