@@ -10,10 +10,11 @@ import "./styles/Calendar.css";
 import { ADD_EVENT } from "../utils/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_EVENTS } from "../utils/queries";
+import enUS from 'date-fns/locale/en-US'
 
 
 const locales = {
-  "en-US": require("date-fns/locale/en-US"),
+  'en-US': enUS,
 };
 const localizer = dateFnsLocalizer({
   format,
@@ -88,7 +89,7 @@ if (loading === false && allEvents.length === 0) {
 
         <label>Start Date </label>
         <input
-          type="date"
+          type="datetime-local"
           selected={newEvent.startDate}
           onChange={(x) =>
             setNewEvent({ ...newEvent, startDate: new Date(x.target.value) })
@@ -97,7 +98,7 @@ if (loading === false && allEvents.length === 0) {
 
         <label>End Date </label>
         <input
-          type="date"
+          type="datetime-local"
           selected={newEvent.endDate}
           onChange={(end) =>
             setNewEvent({ ...newEvent, endDate: new Date(end.target.value) })
