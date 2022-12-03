@@ -1,6 +1,7 @@
 import React from 'react';
 import './geolocation.css';
 import { useGeolocated } from 'react-geolocated';
+import { toFt } from '../../utils/toFt';
 
 const Geolocation = () => {
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
@@ -25,7 +26,10 @@ const Geolocation = () => {
       <ul className='location-list'>
         <li>Latitude: {coords.latitude.toFixed(4)}</li>
         <li>Longitude: {coords.longitude.toFixed(4)}</li>
-        <li>Altitude: {coords.altitude ? coords.altitude : 'Unavailable'}</li>
+        <li>
+          Altitude:{' '}
+          {coords.altitude ? toFt(coords.altitude.toFixed(2)) : 'Unavailable'}
+        </li>
       </ul>
     </>
   ) : (
