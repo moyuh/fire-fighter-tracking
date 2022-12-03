@@ -45,6 +45,11 @@ html {
   }
 }
 
+@media (max-width:1546px){
+  html{
+  background-image: url("./pages/assets/images/green.jpg");
+  background-repeat: repeat; }
+}
 @media (max-width: 420px) {
  html{
  background-image: url("./pages/assets/images/green.jpg");
