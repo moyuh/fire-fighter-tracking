@@ -2,7 +2,7 @@ import format from 'date-fns/format';
 import getDay from 'date-fns/getDay';
 import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -12,12 +12,12 @@ import { useMutation, useQuery } from '@apollo/client';
 // import { QUERY_EVENTS } from '../utils/queries';
 import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
-import enUS from 'date-fns/locale/en-US'
-
+import enUS from 'date-fns/locale/en-US';
+import { v4 as uuidv4 } from 'uuid';
 
 const locales = {
   'en-US': enUS,
-}
+};
 const localizer = dateFnsLocalizer({
   format,
   parse,
@@ -28,6 +28,7 @@ const localizer = dateFnsLocalizer({
 
 function Calendar2() {
   const [newEvent, setNewEvent] = useState({
+    id: '',
     title: '',
     startDate: '',
     endDate: '',
@@ -57,6 +58,7 @@ function Calendar2() {
     for (let i = 0; i < userData.event.length; i++) {
       console.log('in the loop!');
       const loaded = {
+        id: userData.event[i].id,
         title: userData.event[i].title,
         startDate: new Date(userData.event[i].startDate),
         endDate: new Date(userData.event[i].endDate),
@@ -72,6 +74,7 @@ function Calendar2() {
   // setAllEvents(data.events[0])
   async function handleAddEvent(event) {
     event.preventDefault();
+    setNewEvent({ ...newEvent, id: uuidv4() });
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -82,8 +85,10 @@ function Calendar2() {
 
     try {
       // setAllEvents([...allEvents, newEvent]);
+
       await addEvent({
         variables: {
+          id: newEvent.id,
           title: newEvent.title,
           startDate: new Date(newEvent.startDate),
           endDate: new Date(newEvent.endDate),
@@ -96,15 +101,24 @@ function Calendar2() {
     }
   }
 
-  async function handleSelect(pEvent) {
+  const handleSelect = (pEvent) => {
     console.log(pEvent);
-    const r = window.confirm('Would you like to remove this event?');
-    if (r === true) {
-      //Need some logic to delete
-      alert('logic to delete goes here');
+    try {
+      const r = window.confirm('Would you like to remove this event?');
+      if (r === true) {
+        //Need some logic to delete
+        this.setState((prevState, props) => {
+          const allEvents = [...prevState];
+          const idx = allEvents.indexOf(pEvent);
+          allEvents.splice(idx, 1);
+          return { allEvents };
+        });
+        alert('logic to delete goes here');
+      }
+    } catch (err) {
+      console.error(err);
     }
-  }
-
+  };
   return (
     <div className='App'>
       <h1>Calendar</h1>
@@ -120,7 +134,7 @@ function Calendar2() {
 
         <label>Start Date </label>
         <input
-          type="datetime-local"
+          type='datetime-local'
           selected={newEvent.startDate}
           onChange={(x) =>
             setNewEvent({ ...newEvent, startDate: new Date(x.target.value) })
@@ -129,7 +143,7 @@ function Calendar2() {
 
         <label>End Date </label>
         <input
-          type="datetime-local"
+          type='datetime-local'
           selected={newEvent.endDate}
           onChange={(end) =>
             setNewEvent({ ...newEvent, endDate: new Date(end.target.value) })
