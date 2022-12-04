@@ -28,7 +28,7 @@ const localizer = dateFnsLocalizer({
 
 function Calendar2() {
   const [newEvent, setNewEvent] = useState({
-    id: '',
+    eventId: '',
     title: '',
     startDate: '',
     endDate: '',
@@ -58,7 +58,7 @@ function Calendar2() {
     for (let i = 0; i < userData.event.length; i++) {
       console.log('in the loop!');
       const loaded = {
-        id: userData.event[i].id,
+        eventId: userData.event[i].eventId,
         title: userData.event[i].title,
         startDate: new Date(userData.event[i].startDate),
         endDate: new Date(userData.event[i].endDate),
@@ -74,7 +74,7 @@ function Calendar2() {
   // setAllEvents(data.events[0])
   async function handleAddEvent(event) {
     event.preventDefault();
-    setNewEvent({ ...newEvent, id: uuidv4() });
+    setNewEvent({ ...newEvent, eventId: uuidv4() });
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -88,7 +88,7 @@ function Calendar2() {
 
       await addEvent({
         variables: {
-          id: newEvent.id,
+          eventId: newEvent.eventId,
           title: newEvent.title,
           startDate: new Date(newEvent.startDate),
           endDate: new Date(newEvent.endDate),
