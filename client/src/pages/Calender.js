@@ -7,13 +7,13 @@ import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles/Calendar.css';
+import { v4 as uuidv4 } from 'uuid';
 import { ADD_EVENT } from '../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
 // import { QUERY_EVENTS } from '../utils/queries';
 import { GET_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 import enUS from 'date-fns/locale/en-US';
-import { v4 as uuidv4 } from 'uuid';
 
 const locales = {
   'en-US': enUS,
@@ -28,7 +28,7 @@ const localizer = dateFnsLocalizer({
 
 function Calendar2() {
   const [newEvent, setNewEvent] = useState({
-    eventId: '',
+    eventId: uuidv4(),
     title: '',
     startDate: '',
     endDate: '',
@@ -72,9 +72,10 @@ function Calendar2() {
 
   console.log(allEvents);
   // setAllEvents(data.events[0])
-  async function handleAddEvent(event) {
+  const handleAddEvent = async (event) => {
     event.preventDefault();
     setNewEvent({ ...newEvent, eventId: uuidv4() });
+    console.log(newEvent);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -84,14 +85,9 @@ function Calendar2() {
     }
 
     try {
-      // setAllEvents([...allEvents, newEvent]);
-
       await addEvent({
         variables: {
-          eventId: newEvent.eventId,
-          title: newEvent.title,
-          startDate: new Date(newEvent.startDate),
-          endDate: new Date(newEvent.endDate),
+          ...newEvent,
         },
       });
       setAllEvents([...allEvents, newEvent]);
@@ -99,7 +95,7 @@ function Calendar2() {
       console.log(err);
       // console.log(JSON.stringify(err, null, 2));
     }
-  }
+  };
 
   const handleSelect = (pEvent) => {
     console.log(pEvent);
