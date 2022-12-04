@@ -6,7 +6,7 @@ export const GET_ME = gql`
       username
       password
       event {
-        _id
+        id
         title
         startDate
         endDate

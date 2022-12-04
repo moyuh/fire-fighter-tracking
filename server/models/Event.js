@@ -1,6 +1,9 @@
 const { Schema } = require('mongoose');
 const eventSchema = new Schema(
   {
+    id: {
+      type: String,
+    },
     title: {
       type: String,
       required: false,
@@ -21,7 +24,6 @@ const eventSchema = new Schema(
     toJSON: {
       virtuals: true,
     },
-    id: false,
   }
 );
 
