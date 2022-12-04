@@ -65,4 +65,4 @@ Levi Mendyk: https://github.com/levimendyk<br>
 
 ## Preview:
 
-<img src="gif.placeholder"/>
+<img src="client/public/smokeys-helper.gif"/>
