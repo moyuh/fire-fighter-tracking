@@ -45,6 +45,21 @@ const resolvers = {
       }
     },
 
+    deleteEvent: async (parent, { eventId }, context) => {
+      try {
+        if (context.user) {
+          return await User.findByIdAndUpdate(
+            { _id: context.user._id },
+            { $pull: { event: { eventId: eventId } } },
+            { new: true }
+          );
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      } catch (err) {
+        console.log(err);
+      }
+    },
+
     login: async (parent, { username, password }) => {
       try {
         const user = await User.findOne({ username: username });

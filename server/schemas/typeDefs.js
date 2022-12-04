@@ -32,6 +32,7 @@ const typeDefs = gql`
       startDate: String!
       endDate: String!
     ): User
+    deleteEvent(eventId: String!): User
     # addEvent(title: String!, startDate: String!, endDate: String!): Event
     login(username: String!, password: String!): Auth
   }
