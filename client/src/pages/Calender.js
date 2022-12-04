@@ -2,13 +2,14 @@ import format from 'date-fns/format';
 import getDay from 'date-fns/getDay';
 import parse from 'date-fns/parse';
 import startOfWeek from 'date-fns/startOfWeek';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import './styles/Calendar.css';
 import { v4 as uuidv4 } from 'uuid';
 import { ADD_EVENT } from '../utils/mutations';
+import { DELETE_EVENT } from '../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
 // import { QUERY_EVENTS } from '../utils/queries';
 import { GET_ME } from '../utils/queries';
@@ -39,6 +40,7 @@ function Calendar2() {
   const userData = data?.me || [];
   // useEffect(() => {}, [setAllEvents]);
   const [addEvent] = useMutation(ADD_EVENT);
+  const [deleteEvent] = useMutation(DELETE_EVENT);
 
   // const { data, loading } = useQuery(QUERY_EVENTS);
   console.log(data);
@@ -48,27 +50,28 @@ function Calendar2() {
   // }, []);
 
   // console.log(allEvents)
-
-  if (
-    loading === false &&
-    allEvents.length === 0 &&
-    userData.event.length > 0
-  ) {
-    const george = [];
-    for (let i = 0; i < userData.event.length; i++) {
-      console.log('in the loop!');
-      const loaded = {
-        eventId: userData.event[i].eventId,
-        title: userData.event[i].title,
-        startDate: new Date(userData.event[i].startDate),
-        endDate: new Date(userData.event[i].endDate),
-      };
-      george.push(loaded);
-      console.log(loaded);
+  useEffect(() => {
+    if (
+      loading === false &&
+      allEvents.length === 0 &&
+      userData.event.length > 0
+    ) {
+      const george = [];
+      for (let i = 0; i < userData.event.length; i++) {
+        console.log('in the loop!');
+        const loaded = {
+          eventId: userData.event[i].eventId,
+          title: userData.event[i].title,
+          startDate: new Date(userData.event[i].startDate),
+          endDate: new Date(userData.event[i].endDate),
+        };
+        george.push(loaded);
+        console.log(loaded);
+      }
+      setAllEvents(george);
+      console.log(allEvents);
     }
-    setAllEvents(george);
-    console.log(allEvents);
-  }
+  }, [allEvents, loading, userData.event]);
 
   console.log(allEvents);
   // setAllEvents(data.events[0])
@@ -97,24 +100,28 @@ function Calendar2() {
     }
   };
 
-  const handleSelect = (pEvent) => {
+  const handleSelect = async (pEvent) => {
     console.log(pEvent);
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return false;
+    }
+
     try {
       const r = window.confirm('Would you like to remove this event?');
       if (r === true) {
-        //Need some logic to delete
-        this.setState((prevState, props) => {
-          const allEvents = [...prevState];
-          const idx = allEvents.indexOf(pEvent);
-          allEvents.splice(idx, 1);
-          return { allEvents };
+        const eventId = pEvent.eventId;
+        const { data } = await deleteEvent({
+          variables: { eventId },
         });
-        alert('logic to delete goes here');
+        //Need some logic to delete
       }
     } catch (err) {
       console.error(err);
     }
   };
+
   return (
     <div className='App'>
       <h1>Calendar</h1>

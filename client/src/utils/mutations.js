@@ -48,3 +48,19 @@ export const ADD_EVENT = gql`
     }
   }
 `;
+
+export const DELETE_EVENT = gql`
+  mutation deleteEvent($eventId: String!) {
+    deleteEvent(eventId: $eventId) {
+      _id
+      username
+      password
+      event {
+        eventId
+        title
+        startDate
+        endDate
+      }
+    }
+  }
+`;
