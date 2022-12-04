@@ -25,24 +25,22 @@ export const ADD_USER = gql`
 
 export const ADD_EVENT = gql`
   mutation addEvent(
-    $id: String!
+    $eventId: String!
     $title: String!
     $startDate: String!
     $endDate: String!
   ) {
-    # addEvent(title: $title, startDate: $startDate, endDate: $endDate) {
-
-    #     title
-    #     startDate
-    #     endDate
-
-    # }
-    addEvent(id: $id, title: $title, startDate: $startDate, endDate: $endDate) {
+    addEvent(
+      eventId: $eventId
+      title: $title
+      startDate: $startDate
+      endDate: $endDate
+    ) {
       _id
       username
       password
       event {
-        id
+        eventId
         title
         startDate
         endDate

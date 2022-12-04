@@ -15,28 +15,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    // events: async () => {
-    //   return Event.find();
-    // },
-    // events: async (parent, args, context) => {
-    //   console.log({_id: context.user._id})
-    //   return await User.find().populate('event')
-    //     .populate({
-    //       path: 'event',
-    //       populate: 'events'
-    //     });
-    //   },
   },
-  //   events: async (parent, args, context) => {
-  //     console.log('anything?');
-  //     console.log({_id: context.user._id})
-  //     return await User.findById({_id: context.user._id}).populate('event')
-  //     .populate({
-  //       path: 'event',
-  //       populate: 'event'
-  //     });
-  //   },
-  // },
 
   Mutation: {
     addUser: async (parent, args) => {
@@ -65,6 +44,7 @@ const resolvers = {
         console.error(err);
       }
     },
+
     login: async (parent, { username, password }) => {
       try {
         const user = await User.findOne({ username: username });
