@@ -162,7 +162,9 @@ function Calendar2() {
         events={allEvents}
         startAccessor='startDate'
         endAccessor='endDate'
-        onSelectEvent={handleSelect}
+        onSelectEvent={(event) => {
+          handleSelect(event);
+        }}
         style={{ height: 500, margin: '50px' }}
       />
     </div>

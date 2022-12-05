@@ -40,6 +40,7 @@ export const ADD_EVENT = gql`
       username
       password
       event {
+        _id
         eventId
         title
         startDate

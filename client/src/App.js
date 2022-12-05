@@ -10,9 +10,7 @@ import Footer from './components/Footer';
 import Nav from './components/Nav';
 import React, { useState } from 'react';
 
-
-const httpLink = createHttpLink({ uri: '/graphql',});
-
+const httpLink = createHttpLink({ uri: '/graphql' });
 
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
@@ -26,7 +24,19 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      User: {
+        fields: {
+          event: {
+            merge(existing, incoming) {
+              return incoming;
+            },
+          },
+        },
+      },
+    },
+  }),
 });
 
 function App() {
@@ -34,8 +44,7 @@ function App() {
   return (
     <div>
       <ApolloProvider client={client}>
-        <Nav pageView = {pageView}
-        setPageView = {setPageView}/>
+        <Nav pageView={pageView} setPageView={setPageView} />
         <Footer />
       </ApolloProvider>
     </div>
