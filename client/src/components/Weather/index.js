@@ -31,20 +31,21 @@ const Weather = () => {
   };
 
   const weatherCall = async () => {
+    const weatherData = [];
     try {
       const gridRes = await fetch(
         `https://api.weather.gov/points/${lat},${long}`
       );
       const gridData = await gridRes.json();
+      console.log(gridData);
 
-      const weatherRes = await fetch(
-        `https://api.weather.gov/gridpoints/${gridData.properties.gridId}/${gridData.properties.gridX},${gridData.properties.gridY}`
-      );
+      const weatherRes = await fetch(`${gridData.properties.forecastGridData}`);
       console.log(weatherRes);
       if (weatherRes.status === 200) {
         const data = await weatherRes.json();
 
-        const weatherData = {
+        const gridWeatherData = {
+          minTemp: data.properties.minTemperature.values[0],
           maxTemp: data.properties.maxTemperature.values[0],
           lal: data.properties.lightningActivityLevel.values[0],
           relativeHumidity: data.properties.relativeHumidity.values[0],
@@ -54,12 +55,22 @@ const Weather = () => {
           hainesIndex: data.properties.hainesIndex.values[0],
           redFlagThreatIndex: data.properties.redFlagThreatIndex.values[0],
         };
-        setWeather(weatherData);
+        weatherData.push(gridWeatherData);
+      }
+      const weatherHrly = await fetch(`${gridData.properties.forecastHourly}`);
+      if (weatherHrly.status === 200) {
+        const data = await weatherHrly.json();
+
+        const weatherHrlyData = {
+          temp: data.properties.periods[0].temperature,
+        };
+        weatherData.push(weatherHrlyData);
       } else {
         alert(
           "Data unavailable at this time! It's only the US government, give 'em a break..."
         );
       }
+      setWeather(weatherData);
     } catch (err) {
       console.error(err);
     }
