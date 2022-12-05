@@ -8,6 +8,7 @@ const Geolocation = () => {
     useGeolocated({
       positionOptions: {
         enableHighAccuracy: false,
+        timeout: 10000,
       },
       watchPosition: true,
       userDecisionTimeout: null,

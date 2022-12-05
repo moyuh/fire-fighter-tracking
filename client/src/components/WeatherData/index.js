@@ -8,37 +8,43 @@ const WeatherData = (props) => {
       <h2 className='title'>Forecast Data</h2>
       <ul className='forecast-list'>
         <li>
-          Max Temp:{' '}
-          {toFahrenheit(props.searchedWeather.maxTemp.value.toFixed(0))}° F
+          Min Temp:{' '}
+          {toFahrenheit(props.searchedWeather[0].minTemp.value.toFixed(0))}° F
         </li>
         <li>
-          Relative Humidity: {props.searchedWeather.relativeHumidity.value}%
+          Max Temp:{' '}
+          {toFahrenheit(props.searchedWeather[0].maxTemp.value.toFixed(0))}° F
+        </li>
+        <li>Current Temp: {props.searchedWeather[1].temp}° F</li>
+        <li>
+          Current Relative Humidity:{' '}
+          {props.searchedWeather[0].relativeHumidity.value}%
         </li>
         <li>
           20ft Winds:{' '}
-          {props.searchedWeather.twentyFootWindDirection
-            ? `${props.searchedWeather.twentyFootWindDirection} at`
+          {props.searchedWeather[0].twentyFootWindDirection
+            ? `${props.searchedWeather[0].twentyFootWindDirection} at`
             : 'Unavailable'}
-          {props.searchedWeather.twentyFootWindSpeed
-            ? props.searchedWeather.twentyFootWindSpeed
+          {props.searchedWeather[0].twentyFootWindSpeed
+            ? props.searchedWeather[0].twentyFootWindSpeed
             : ''}
         </li>
         <li>
           LAL:{' '}
-          {props.searchedWeather.lal.value
-            ? props.searchedWeather.lal.value
+          {props.searchedWeather[0].lal.value
+            ? props.searchedWeather[0].lal.value
             : 'Unavailable'}
         </li>
         <li>
           Haines:{' '}
-          {props.searchedWeather.hainesIndex.value
-            ? props.searchedWeather.hainesIndex.value
+          {props.searchedWeather[0].hainesIndex.value
+            ? props.searchedWeather[0].hainesIndex.value
             : 'Unavailable'}
         </li>
         <li>
           Red Flag Threat Index:{' '}
-          {props.searchedWeather.redFlagThreatIndex
-            ? props.searchedWeather.redFlagThreatIndex
+          {props.searchedWeather[0].redFlagThreatIndex
+            ? props.searchedWeather[0].redFlagThreatIndex
             : 'Unavailable'}
         </li>
       </ul>
