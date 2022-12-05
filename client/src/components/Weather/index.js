@@ -9,7 +9,6 @@ const Weather = () => {
   const [long, setLong] = useState('');
   const [searchedWeather, setWeather] = useState({});
 
-  // console.log(Object.keys(searchedWeather).length === 1);
   const handleInputChange = (e) => {
     const { target } = e;
     const inputType = target.name;
@@ -31,9 +30,6 @@ const Weather = () => {
     }
   };
 
-  //   let lat = '39.7626';
-  //   let long = '-105.3136';
-
   const weatherCall = async () => {
     try {
       const gridRes = await fetch(
@@ -44,24 +40,26 @@ const Weather = () => {
       const weatherRes = await fetch(
         `https://api.weather.gov/gridpoints/${gridData.properties.gridId}/${gridData.properties.gridX},${gridData.properties.gridY}`
       );
+      console.log(weatherRes);
+      if (weatherRes.status === 200) {
+        const data = await weatherRes.json();
 
-      const data = await weatherRes.json();
-
-      const weatherData = {
-        maxTemp: data.properties.maxTemperature.values[0],
-        lal: data.properties.lightningActivityLevel.values[0],
-        relativeHumidity: data.properties.relativeHumidity.values[0],
-        twentyFootWindSpeed: data.properties.twentyFootWindSpeed.values[0],
-        twentyFootWindDirection:
-          data.properties.twentyFootWindDirection.values[0],
-        hainesIndex: data.properties.hainesIndex.values[0],
-        redFlagThreatIndex: data.properties.redFlagThreatIndex.values[0],
-      };
-
-      console.log(typeof weatherData);
-
-      setWeather(weatherData);
-      console.log(searchedWeather);
+        const weatherData = {
+          maxTemp: data.properties.maxTemperature.values[0],
+          lal: data.properties.lightningActivityLevel.values[0],
+          relativeHumidity: data.properties.relativeHumidity.values[0],
+          twentyFootWindSpeed: data.properties.twentyFootWindSpeed.values[0],
+          twentyFootWindDirection:
+            data.properties.twentyFootWindDirection.values[0],
+          hainesIndex: data.properties.hainesIndex.values[0],
+          redFlagThreatIndex: data.properties.redFlagThreatIndex.values[0],
+        };
+        setWeather(weatherData);
+      } else {
+        alert(
+          "Data unavailable at this time! It's only the US government, give 'em a break..."
+        );
+      }
     } catch (err) {
       console.error(err);
     }
