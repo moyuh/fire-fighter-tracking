@@ -28,7 +28,7 @@ const Geolocation = () => {
         <li>Longitude: {coords.longitude.toFixed(4)}</li>
         <li>
           Altitude:{' '}
-          {coords.altitude ? toFt(coords.altitude.toFixed(2)) : 'Unavailable'}
+          {coords.altitude ? toFt(coords.altitude).toFixed(2) : 'Unavailable'}
         </li>
       </ul>
     </>
