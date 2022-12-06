@@ -70,7 +70,8 @@ const Weather = () => {
           "Data unavailable at this time! It's only the US government, give 'em a break..."
         );
       }
-      setWeather(weatherData);
+      const cleanWeatherData = Object.assign({}, ...weatherData);
+      setWeather(cleanWeatherData);
     } catch (err) {
       console.error(err);
     }
