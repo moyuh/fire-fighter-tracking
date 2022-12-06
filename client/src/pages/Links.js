@@ -2,7 +2,7 @@ import './styles/Links.css'
 
 function Donations () {
     return (
-   <div>
+   <div className='layer'>
         <h1 className='linkPage'>Important Links</h1>
         <p className='aboutLinks'> Just about anything you will need for the job</p>
        <a className='linksNoColor' href = 'https://www.nifc.gov/nicc/sitreprt.pdf' target="__blank"><button className='dash-btn link-btn'>Sit Report</button></a>
