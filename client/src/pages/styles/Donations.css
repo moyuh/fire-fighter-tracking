@@ -44,6 +44,18 @@
 .lastBtn {
     margin-top: 3%;
 }
+@media (max-width: 1000px){
+    .shrink{
+        width:fit-content;
+        height: fit-content;
+        font-size: 12px;
+    }
+    .topper{
+        text-align: center;
+        font-size: 12px;
+    }
+}
+
 @media (max-width:420px){
     .shrink{
         width:fit-content;
@@ -53,6 +65,5 @@
     .topper{
         text-align: center;
         font-size: 12px;
-        margin-left: 8px
     }
 }
